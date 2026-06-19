@@ -160,10 +160,7 @@ function renderGraph(focusId) {
       .on('start', (e,d) => { if(!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
       .on('drag', (e,d) => { d.fx = e.x; d.fy = e.y; })
       .on('end', (e,d) => { if(!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; })
-    )
-    .on('click', (e,d) => { e.stopPropagation(); selectNote(d.id); })
-    .on('mouseenter', function(e,d) { d3.select(this).select('circle').transition().duration(150).attr('r', r(d)+5); })
-    .on('mouseleave', function(e,d) { d3.select(this).select('circle').transition().duration(150).attr('r', r(d)); });
+    );
 
   var colors = {concept:'#1a5fb4',meta:'#4a2d7a',tool:'#935e00',skill:'#303fa0',domain:'#316dca',strategy:'#6e40c9',learning:'#9e6a03',question:'#8b3a3a',belief:'#9e6a03',bias:'#8b3a3a',emotion:'#b0376b',fact:'#1f6f3b',insight:'#991b4e',project:'#116b63',resource:'#6a2b8a',default:'#21262d'};
   function r(d) { var m = {concept:12,meta:14,tool:10,skill:11,domain:13,strategy:10,learning:9,question:8,belief:10,bias:9,emotion:8,fact:9,insight:10,project:11,resource:9}; return (m[d.type]||8) + Math.min(4, (d.backlink_count||0)); }
@@ -171,7 +168,9 @@ function renderGraph(focusId) {
   node.append('circle')
     .attr('r', d => r(d))
     .attr('fill', d => colors[d.type]||colors.default)
-    .attr('stroke', d => d3.color(colors[d.type]||colors.default).brighter(0.5));
+    .attr('stroke', d => d3.color(colors[d.type]||colors.default).brighter(0.5))
+    .on('mouseenter', function(e,d) { d3.select(this).transition().duration(150).attr('r', r(d)+5); })
+    .on('mouseleave', function(e,d) { d3.select(this).transition().duration(150).attr('r', r(d)); });
 
   node.append('text').text(d => d.label).attr('dy', d => r(d)+14);
 
