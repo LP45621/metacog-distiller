@@ -52,13 +52,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 #graph-tools{position:absolute;bottom:12px;right:12px;display:flex;gap:6px}
 #graph-tools button{background:rgba(22,27,34,0.93);border:1px solid #30363d;color:#c9d1d9;border-radius:6px;padding:6px 12px;font-size:11px;cursor:pointer}
 #graph-tools button:hover{background:#30363d}
+.nav-bar{display:flex;gap:8px;align-items:center;margin-bottom:4px;font-size:12px}
+.nav-bar a{color:#8b949e;text-decoration:none}
+.nav-bar a:hover{color:#f0f6fc}
+.nav-bar .sep{color:#30363d}
+.node.dim{opacity:0.15;pointer-events:none}
+.node.dim text{opacity:0.3}
+.node.connected{opacity:1}
+.node.connected circle{stroke:#f0f6fc;stroke-width:2.5px}
+.node.hovered circle{stroke:#f0f6fc;stroke-width:3px}
+.edge.dim{opacity:0.04;pointer-events:none}
+.edge.highlight{opacity:0.7}
 </style></head>
 <body>
-<div class="nav-bar"><a href="index.html">🏠 返回首页</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐 图谱</a><span class="sep">|</span><a href="note-editor.html">📝 笔记</a></div>
 <div id="graph-panel"><svg></svg>
 <div id="legend"><h3>Knowledge Types</h3><div class="lr"><span class="ld" style="background:#1a5fb4"></span>Concept</div><div class="lr"><span class="ld" style="background:#1f6f3b"></span>Fact</div><div class="lr"><span class="ld" style="background:#935e00"></span>Tool</div><div class="lr"><span class="ld" style="background:#6a2b8a"></span>Resource</div><div class="lr"><span class="ld" style="background:#991b4e"></span>Insight</div><div class="lr"><span class="ld" style="background:#116b63"></span>Project</div><div class="lr"><span class="ld" style="background:#303fa0"></span>Skill</div></div>
 <div id="graph-tools"><button onclick="zI()">+</button><button onclick="zO()">-</button><button onclick="zR()">&#x21BA;</button></div></div>
-<div id="sidebar"><div id="sidebar-header"><h2>&#x1F4DA; Knowledge Graph</h2><div class="subtitle" id="stats">loading</div><input id="search-box" placeholder="&#x1F50D; 搜索节点..." style="width:100%;margin-top:8px;padding:6px 10px;border-radius:6px;border:1px solid #30363d;background:#0d1117;color:#c9d1d9;font-size:12px;outline:none;font-family:inherit" oninput="searchNodes(this.value)"></div>
+<div id="sidebar"><div id="sidebar-header">
+<div class="nav-bar"><a href="index.html">🏠</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐</a><span class="sep">|</span><a href="note-editor.html">📝</a></div>
+<h2>&#x1F4DA; Knowledge Graph</h2><div class="subtitle" id="stats">loading</div><input id="search-box" placeholder="&#x1F50D; 搜索节点..." style="width:100%;margin-top:8px;padding:6px 10px;border-radius:6px;border:1px solid #30363d;background:#0d1117;color:#c9d1d9;font-size:12px;outline:none;font-family:inherit" oninput="searchNodes(this.value)"></div>
 <div id="detail-content"><div class="empty">&#x1F446; hover node to view details</div></div></div>
 <script>
 var svg=d3.select("svg"),g=svg.append("g");
@@ -74,12 +86,20 @@ gn=data.nodes.map(n=>Object.assign({},n));
 ge=data.edges.map(e=>Object.assign({},e));
 document.getElementById("stats").textContent=gn.length+" nodes · "+ge.length+" edges";
 var lk=g.append("g").selectAll("line").data(ge).join("line").attr("class",d=>"edge "+(d.type||"influences")).attr("stroke-width",1.4);
-var nd=g.append("g").selectAll("g").data(gn).join("g").attr("class",d=>"node "+(d.type||"domain")).call(d3.drag().on("start",(e,d)=>{if(!e.active)s.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y}).on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y}).on("end",(e,d)=>{if(!e.active)s.alphaTarget(0);d.fx=null;d.fy=null})).on("mouseenter",function(e,d){g.selectAll(".node").classed("selected",false);d3.select(this).classed("selected",true);sd(d)}).on("mouseleave",function(){g.selectAll(".node").classed("selected",false);});
+var nd=g.append("g").selectAll("g").data(gn).join("g").attr("class",d=>"node "+(d.type||"domain")).call(d3.drag().on("start",(e,d)=>{if(!e.active)s.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y}).on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y}).on("end",(e,d)=>{if(!e.active)s.alphaTarget(0);d.fx=null;d.fy=null})).on("mouseenter",function(e,d){highlightNode(d,nd,lk);sd(d)});
 nd.append("circle").attr("r",nr).on("mouseenter",function(e,d){d3.select(this).transition().duration(150).attr("r",nr(d)+5)}).on("mouseleave",function(e,d){d3.select(this).transition().duration(150).attr("r",nr(d))});
 nd.append("text").text(d=>d.label).style("font-family",'"PingFang SC","Microsoft YaHei",sans-serif');
 var W=document.getElementById("graph-panel").clientWidth,H=document.getElementById("graph-panel").clientHeight;
 s=d3.forceSimulation(gn).force("link",d3.forceLink(ge).id(d=>d.id).distance(d=>{var ds={"part_of":120,"used_in":140,"depends_on":160,"prerequisite":160,"relates_to":200,"example_of":180,"contrasts_with":220,"derives_from":170};return ds[d.type]||160}).strength(0.4)).force("charge",d3.forceManyBody().strength(-650).distanceMax(600)).force("center",d3.forceCenter(W/2,H/2)).force("collision",d3.forceCollide().radius(d=>nr(d)+22)).alphaDecay(0.015).on("tick",()=>{lk.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);nd.attr("transform",d=>"translate("+d.x+","+d.y+")")})}
-function sd(d){
+function highlightNode(d,nd,lk){
+g.selectAll(".node").classed("hovered",false).classed("dim",false).classed("connected",false);
+g.selectAll(".edge").classed("dim",false).classed("highlight",false);
+var connected=new Set([d.id]);
+ge.forEach(e=>{var s=e.source.id||e.source;var t=e.target.id||e.target;if(s===d.id)connected.add(t);if(t===d.id)connected.add(s)});
+nd.classed("dim",n=>!connected.has(n.id)).classed("connected",n=>connected.has(n.id)&&n.id!==d.id);
+d3.select(d3.selectAll(".node").nodes().find(n=>d3.select(n).datum().id===d.id)).classed("hovered",true).classed("dim",false);
+lk.classed("dim",e=>{var s=e.source.id||e.source;var t=e.target.id||e.target;return s!==d.id&&t!==d.id}).classed("highlight",e=>{var s=e.source.id||e.source;var t=e.target.id||e.target;return s===d.id||t===d.id});
+}
 var el=document.getElementById("detail-content");
 var rs=ge.filter(e=>(e.source.id||e.source)===d.id||(e.target.id||e.target)===d.id);
 var h="";
@@ -100,14 +120,14 @@ inp.forEach(e=>{var o=gn.find(n=>n.id===e.source.id);h+='<div class="edge-mini">
 h+='</div>';
 }
 el.innerHTML=h;}
-svg.on("click",()=>{g.selectAll(".node").classed("selected",false);document.getElementById("detail-content").innerHTML='<div class="empty">&#x1F446; hover node</div>'});
+svg.on("click",()=>{g.selectAll(".node").classed("hovered",false).classed("dim",false).classed("connected",false);g.selectAll(".edge").classed("dim",false).classed("highlight",false)});
 window.addEventListener("resize",()=>{if(s){var W=document.getElementById("graph-panel").clientWidth,H=document.getElementById("graph-panel").clientHeight;s.force("center",d3.forceCenter(W/2,H/2));s.alpha(0.3).restart()}});
 function zI(){svg.transition().duration(300).call(zoom.scaleBy,1.3)}
 function zO(){svg.transition().duration(300).call(zoom.scaleBy,0.7)}
 function zR(){svg.transition().duration(400).call(zoom.transform,d3.zoomIdentity)}
 var nfm = {"AD_AD7606特性": "notes\\AD_AD7606特性.md", "AD_采样参数": "notes\\AD_采样参数.md", "AD模数转换": "notes\\AD模数转换.md", "Agent体系": "notes\\Agent体系.md", "AI_LLM原理": "notes\\AI_LLM原理.md", "AI编排能力": "notes\\AI编排能力.md", "C_C++编程": "notes\\C_C++编程.md", "clean_garbled.py": "notes\\clean_garbled.py.md", "CodeWhale": "notes\\CodeWhale.md", "D3.js力导向图": "notes\\D3.js力导向图.md", "DeepSeek平台": "notes\\DeepSeek平台.md", "DMA_传输模式": "notes\\DMA_传输模式.md", "DMA传输": "notes\\DMA传输.md", "DMA直接存储器访问": "notes\\DMA直接存储器访问.md", "FreeLLMAPI": "notes\\FreeLLMAPI.md", "FreeRTOS": "notes\\FreeRTOS.md", "FreeRTOS_IPC机制": "notes\\FreeRTOS_IPC机制.md", "FreeRTOS_任务管理": "notes\\FreeRTOS_任务管理.md", "Git版本控制": "notes\\Git版本控制.md", "GPIO_中断系统": "notes\\GPIO_中断系统.md", "GPIO_输出配置": "notes\\GPIO_输出配置.md", "GPIO编程": "notes\\GPIO编程.md", "HTML_CSS_JS": "notes\\HTML_CSS_JS.md", "I2C_电气与寻址": "notes\\I2C_电气与寻址.md", "I2C_速率模式": "notes\\I2C_速率模式.md", "I2C通信协议": "notes\\I2C通信协议.md", "less-tokens": "notes\\less-tokens.md", "Linux嵌入式": "notes\\Linux嵌入式.md", "mimo": "notes\\mimo.md", "NVIC中断控制器": "notes\\NVIC中断控制器.md", "Obsidian": "notes\\Obsidian.md", "Obsidian知识管理": "notes\\Obsidian知识管理.md", "PDF处理": "notes\\PDF处理.md", "PyInstaller打包": "notes\\PyInstaller打包.md", "Python编程": "notes\\Python编程.md", "Python脚本开发": "notes\\Python脚本开发.md", "Python量化编程": "notes\\Python量化编程.md", "RK3568+RTT嵌入式项目": "notes\\RK3568+RTT嵌入式项目.md", "RK3568_芯片架构": "notes\\RK3568_芯片架构.md", "RTT_内核机制": "notes\\RTT_内核机制.md", "Set-and-forget 偏好": "notes\\Set-and-forget 偏好.md", "SPI_时钟极性与相位": "notes\\SPI_时钟极性与相位.md", "SPI_片选与主从架构": "notes\\SPI_片选与主从架构.md", "SPI通信协议": "notes\\SPI通信协议.md", "STM32_HAL库与CubeMX": "notes\\STM32_HAL库与CubeMX.md", "STM32_外设体系": "notes\\STM32_外设体系.md", "STM32嵌入式开发": "notes\\STM32嵌入式开发.md", "Timer定时器": "notes\\Timer定时器.md", "Unicode Encoding Safety": "notes\\Unicode Encoding Safety.md", "USART_UART": "notes\\USART_UART.md", "VSCode_编辑器": "notes\\VSCode_编辑器.md", "主动蒸馏意识": "notes\\主动蒸馏意识.md", "信号处理": "notes\\信号处理.md", "元认知可视化探索": "notes\\元认知可视化探索.md", "元认知蒸馏": "notes\\元认知蒸馏.md", "先查后建": "notes\\先查后建.md", "哲学思辨": "notes\\哲学思辨.md", "多工具生态构建": "notes\\多工具生态构建.md", "多模型切换": "notes\\多模型切换.md", "学习→构建进化": "notes\\学习→构建进化.md", "完整性需求": "notes\\完整性需求.md", "实时系统RTOS": "notes\\实时系统RTOS.md", "嵌入式驱动开发": "notes\\嵌入式驱动开发.md", "工具控制欲": "notes\\工具控制欲.md", "工具集成与自动化": "notes\\工具集成与自动化.md", "并行+收敛": "notes\\并行+收敛.md", "技术栈文档化": "notes\\技术栈文档化.md", "技术深度优先": "notes\\技术深度优先.md", "抽象→具象快速切换": "notes\\抽象→具象快速切换.md", "持久化主线": "notes\\持久化主线.md", "操作系统概念": "notes\\操作系统概念.md", "收敛型思维": "notes\\收敛型思维.md", "数据结构与算法": "notes\\数据结构与算法.md", "模型选择策略": "notes\\模型选择策略.md", "渐进式构建": "notes\\渐进式构建.md", "焦虑管理": "notes\\焦虑管理.md", "真实搜索偏好": "notes\\真实搜索偏好.md", "睡眠健康": "notes\\睡眠健康.md", "硬盘检测": "notes\\硬盘检测.md", "系统性架构思维": "notes\\系统性架构思维.md", "编码调试经验": "notes\\编码调试经验.md", "编码质量意识": "notes\\编码质量意识.md", "编码问题": "notes\\编码问题.md", "网络协议": "notes\\网络协议.md", "自动化依赖": "notes\\自动化依赖.md", "自动化蒸馏管道": "notes\\自动化蒸馏管道.md", "角色边界意识": "notes\\角色边界意识.md", "认知偏差体系": "notes\\认知偏差体系.md", "记忆化思维": "notes\\记忆化思维.md", "量化交易": "notes\\量化交易.md", "量化交易与回测": "notes\\量化交易与回测.md", "量化回测": "notes\\量化回测.md", "长期AI依赖": "notes\\长期AI依赖.md", "项目持久化迁移": "notes\\项目持久化迁移.md", "项目结构优化迭代": "notes\\项目结构优化迭代.md", "验证习惯": "notes\\验证习惯.md", "高自主性需求": "notes\\高自主性需求.md", "🤔 ADC疑问": "notes\\🤔 ADC疑问.md", "🤔 AI原理疑问": "notes\\🤔 AI原理疑问.md", "🤔 C语言疑问": "notes\\🤔 C语言疑问.md", "🤔 DMA疑问": "notes\\🤔 DMA疑问.md", "🤔 FreeRTOS疑问": "notes\\🤔 FreeRTOS疑问.md", "🤔 GPIO疑问": "notes\\🤔 GPIO疑问.md", "🤔 I2C疑问": "notes\\🤔 I2C疑问.md", "🤔 Python疑问": "notes\\🤔 Python疑问.md", "🤔 RK3568疑问": "notes\\🤔 RK3568疑问.md", "🤔 RTT疑问": "notes\\🤔 RTT疑问.md", "🤔 SPI疑问": "notes\\🤔 SPI疑问.md", "🤔 STM32疑问": "notes\\🤔 STM32疑问.md", "🤔 中断疑问": "notes\\🤔 中断疑问.md", "🤔 串口疑问": "notes\\🤔 串口疑问.md", "🤔 定时器疑问": "notes\\🤔 定时器疑问.md", "🤔 嵌入式Linux疑问": "notes\\🤔 嵌入式Linux疑问.md", "🤔 操作系统疑问": "notes\\🤔 操作系统疑问.md", "🤔 电路疑问": "notes\\🤔 电路疑问.md", "🤔 算法疑问": "notes\\🤔 算法疑问.md", "🤔 量化疑问": "notes\\🤔 量化疑问.md"};
 function searchNodes(q){
-q=q.toLowerCase();if(!q){document.getElementById("detail-content").innerHTML='<div class="empty">&#x1F446; hover node</div>';return}
+q=q.toLowerCase();if(!q){document.getElementById("detail-content").innerHTML='<div class="empty">&#x1F446; hover node to view details</div>';g.selectAll(".node").classed("hovered",false).classed("dim",false).classed("connected",false);g.selectAll(".edge").classed("dim",false).classed("highlight",false);return}
 var matches=gn.filter(n=>n.label.toLowerCase().includes(q)||(n.summary||'').toLowerCase().includes(q));
 var h='<div class="detail-block"><h3>搜索结果 ('+matches.length+')</h3>';
 matches.forEach(n=>{

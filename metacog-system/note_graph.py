@@ -224,14 +224,14 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHe
 .search-result .hit{{color:#d2991d}}
 .search-result .src{{font-size:10px;color:#484f58}}
 /* ── nav ── */
-.nav-bar{{background:#161b22;border-bottom:1px solid #30363d;padding:6px 16px;font-size:12px;display:flex;gap:16px;align-items:center;flex-shrink:0}}
+.nav-bar{{display:flex;gap:8px;padding:8px 12px;font-size:12px;border-bottom:1px solid #30363d}}
 .nav-bar a{{color:#8b949e;text-decoration:none}}
 .nav-bar a:hover{{color:#f0f6fc}}
 .nav-bar .sep{{color:#30363d}}
 </style></head>
 <body>
-<div class="nav-bar"><a href="index.html">🏠 返回首页</a><span class="sep">|</span><a href="note-editor.html">📝 笔记</a><span class="sep">|</span><a href="metacognition-mapper.html">🧠 元认知</a></div>
 <div id="left-panel">
+  <div class="nav-bar"><a href="index.html">🏠</a><span class="sep">|</span><a href="note-editor.html">📝</a><span class="sep">|</span><a href="metacognition-mapper.html">🧠</a></div>
   <div id="search-area">
     <input id="search-input" placeholder="🔍 搜索笔记..." oninput="doSearch(this.value)">
     <div id="search-stats"></div>

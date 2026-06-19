@@ -86,13 +86,25 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHe
 #graph-tools{{position:absolute;bottom:12px;right:12px;display:flex;gap:6px}}
 #graph-tools button{{background:rgba(22,27,34,0.93);border:1px solid #30363d;color:#c9d1d9;border-radius:6px;padding:6px 12px;font-size:11px;cursor:pointer}}
 #graph-tools button:hover{{background:#30363d}}
+.nav-bar{{display:flex;gap:8px;align-items:center;margin-bottom:4px;font-size:12px}}
+.nav-bar a{{color:#8b949e;text-decoration:none}}
+.nav-bar a:hover{{color:#f0f6fc}}
+.nav-bar .sep{{color:#30363d}}
+.node.dim{{opacity:0.15;pointer-events:none}}
+.node.dim text{{opacity:0.3}}
+.node.connected{{opacity:1}}
+.node.connected circle{{stroke:#f0f6fc;stroke-width:2.5px}}
+.node.hovered circle{{stroke:#f0f6fc;stroke-width:3px}}
+.edge.dim{{opacity:0.04;pointer-events:none}}
+.edge.highlight{{opacity:0.7}}
 </style></head>
 <body>
-<div class="nav-bar"><a href="index.html">🏠 返回首页</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐 图谱</a><span class="sep">|</span><a href="note-editor.html">📝 笔记</a></div>
 <div id="graph-panel"><svg></svg>
 <div id="legend">{legend_html}</div>
 <div id="graph-tools"><button onclick="zI()">+</button><button onclick="zO()">-</button><button onclick="zR()">&#x21BA;</button></div></div>
-<div id="sidebar"><div id="sidebar-header"><h2>{title}</h2><div class="subtitle" id="stats">loading</div><input id="search-box" placeholder="&#x1F50D; 搜索节点..." style="width:100%;margin-top:8px;padding:6px 10px;border-radius:6px;border:1px solid #30363d;background:#0d1117;color:#c9d1d9;font-size:12px;outline:none;font-family:inherit" oninput="searchNodes(this.value)"></div>
+<div id="sidebar"><div id="sidebar-header">
+<div class="nav-bar"><a href="index.html">🏠</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐</a><span class="sep">|</span><a href="note-editor.html">📝</a></div>
+<h2>{title}</h2><div class="subtitle" id="stats">loading</div><input id="search-box" placeholder="&#x1F50D; 搜索节点..." style="width:100%;margin-top:8px;padding:6px 10px;border-radius:6px;border:1px solid #30363d;background:#0d1117;color:#c9d1d9;font-size:12px;outline:none;font-family:inherit" oninput="searchNodes(this.value)"></div>
 <div id="detail-content"><div class="empty">&#x1F446; hover node to view details</div></div></div>
 <script>
 var svg=d3.select("svg"),g=svg.append("g");
@@ -108,12 +120,20 @@ gn=data.nodes.map(n=>Object.assign({{}},n));
 ge=data.edges.map(e=>Object.assign({{}},e));
 document.getElementById("stats").textContent=gn.length+" nodes · "+ge.length+" edges";
 var lk=g.append("g").selectAll("line").data(ge).join("line").attr("class",d=>"edge "+(d.type||"influences")).attr("stroke-width",1.4);
-var nd=g.append("g").selectAll("g").data(gn).join("g").attr("class",d=>"node "+(d.type||"domain")).call(d3.drag().on("start",(e,d)=>{{if(!e.active)s.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y}}).on("drag",(e,d)=>{{d.fx=e.x;d.fy=e.y}}).on("end",(e,d)=>{{if(!e.active)s.alphaTarget(0);d.fx=null;d.fy=null}})).on("mouseenter",function(e,d){{g.selectAll(".node").classed("selected",false);d3.select(this).classed("selected",true);sd(d)}}).on("mouseleave",function(){{g.selectAll(".node").classed("selected",false);}});
+var nd=g.append("g").selectAll("g").data(gn).join("g").attr("class",d=>"node "+(d.type||"domain")).call(d3.drag().on("start",(e,d)=>{{if(!e.active)s.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y}}).on("drag",(e,d)=>{{d.fx=e.x;d.fy=e.y}}).on("end",(e,d)=>{{if(!e.active)s.alphaTarget(0);d.fx=null;d.fy=null}})).on("mouseenter",function(e,d){{highlightNode(d,nd,lk);sd(d)}});
 nd.append("circle").attr("r",nr).on("mouseenter",function(e,d){{d3.select(this).transition().duration(150).attr("r",nr(d)+5)}}).on("mouseleave",function(e,d){{d3.select(this).transition().duration(150).attr("r",nr(d))}});
 nd.append("text").text(d=>d.label).style("font-family",'"PingFang SC","Microsoft YaHei",sans-serif');
 var W=document.getElementById("graph-panel").clientWidth,H=document.getElementById("graph-panel").clientHeight;
 s=d3.forceSimulation(gn).force("link",d3.forceLink(ge).id(d=>d.id).distance(d=>{{var ds={dfs(link_dists)};return ds[d.type]||160}}).strength(0.4)).force("charge",d3.forceManyBody().strength({charge}).distanceMax(600)).force("center",d3.forceCenter(W/2,H/2)).force("collision",d3.forceCollide().radius(d=>nr(d)+{collide})).alphaDecay(0.015).on("tick",()=>{{lk.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);nd.attr("transform",d=>"translate("+d.x+","+d.y+")")}})}}
-function sd(d){{
+function highlightNode(d,nd,lk){{
+g.selectAll(".node").classed("hovered",false).classed("dim",false).classed("connected",false);
+g.selectAll(".edge").classed("dim",false).classed("highlight",false);
+var connected=new Set([d.id]);
+ge.forEach(e=>{{var s=e.source.id||e.source;var t=e.target.id||e.target;if(s===d.id)connected.add(t);if(t===d.id)connected.add(s)}});
+nd.classed("dim",n=>!connected.has(n.id)).classed("connected",n=>connected.has(n.id)&&n.id!==d.id);
+d3.select(d3.selectAll(".node").nodes().find(n=>d3.select(n).datum().id===d.id)).classed("hovered",true).classed("dim",false);
+lk.classed("dim",e=>{{var s=e.source.id||e.source;var t=e.target.id||e.target;return s!==d.id&&t!==d.id}}).classed("highlight",e=>{{var s=e.source.id||e.source;var t=e.target.id||e.target;return s===d.id||t===d.id}});
+}}
 var el=document.getElementById("detail-content");
 var rs=ge.filter(e=>(e.source.id||e.source)===d.id||(e.target.id||e.target)===d.id);
 var h="";
@@ -134,14 +154,14 @@ inp.forEach(e=>{{var o=gn.find(n=>n.id===e.source.id);h+='<div class="edge-mini"
 h+='</div>';
 }}
 el.innerHTML=h;}}
-svg.on("click",()=>{{g.selectAll(".node").classed("selected",false);document.getElementById("detail-content").innerHTML='<div class="empty">&#x1F446; hover node</div>'}});
+svg.on("click",()=>{{g.selectAll(".node").classed("hovered",false).classed("dim",false).classed("connected",false);g.selectAll(".edge").classed("dim",false).classed("highlight",false)}});
 window.addEventListener("resize",()=>{{if(s){{var W=document.getElementById("graph-panel").clientWidth,H=document.getElementById("graph-panel").clientHeight;s.force("center",d3.forceCenter(W/2,H/2));s.alpha(0.3).restart()}}}});
 function zI(){{svg.transition().duration(300).call(zoom.scaleBy,1.3)}}
 function zO(){{svg.transition().duration(300).call(zoom.scaleBy,0.7)}}
 function zR(){{svg.transition().duration(400).call(zoom.transform,d3.zoomIdentity)}}
 var nfm = {note_file_js};
 function searchNodes(q){{
-q=q.toLowerCase();if(!q){{document.getElementById("detail-content").innerHTML='<div class="empty">&#x1F446; hover node</div>';return}}
+q=q.toLowerCase();if(!q){{document.getElementById("detail-content").innerHTML='<div class="empty">&#x1F446; hover node to view details</div>';g.selectAll(".node").classed("hovered",false).classed("dim",false).classed("connected",false);g.selectAll(".edge").classed("dim",false).classed("highlight",false);return}}
 var matches=gn.filter(n=>n.label.toLowerCase().includes(q)||(n.summary||'').toLowerCase().includes(q));
 var h='<div class="detail-block"><h3>搜索结果 ('+matches.length+')</h3>';
 matches.forEach(n=>{{

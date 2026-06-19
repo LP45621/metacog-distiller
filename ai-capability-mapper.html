@@ -49,13 +49,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 #graph-tools{position:absolute;bottom:12px;right:12px;display:flex;gap:6px}
 #graph-tools button{background:rgba(22,27,34,0.93);border:1px solid #30363d;color:#c9d1d9;border-radius:6px;padding:6px 12px;font-size:11px;cursor:pointer}
 #graph-tools button:hover{background:#30363d}
-.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:6px 16px;font-size:12px;display:flex;gap:16px;align-items:center;flex-shrink:0}
+.nav-bar{display:flex;gap:8px;align-items:center;margin-bottom:4px;font-size:12px}
 .nav-bar a{color:#8b949e;text-decoration:none}
 .nav-bar a:hover{color:#f0f6fc}
 .nav-bar .sep{color:#30363d}
 </style></head>
 <body>
-<div class="nav-bar"><a href="index.html">🏠 返回首页</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐 图谱</a><span class="sep">|</span><a href="note-editor.html">📝 笔记</a></div>
 <div id="graph-panel"><svg><defs>
 <marker id="arrow-part_of" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 2 L 9 5 L 0 8 z" fill="#58a6ff"/></marker>
 <marker id="arrow-depends_on" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 2 L 9 5 L 0 8 z" fill="#f0883e"/></marker>
@@ -84,7 +83,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 </div>
 </div>
 <div id="graph-tools"><button onclick="zI()">+</button><button onclick="zO()">-</button><button onclick="zR()">&#x21BA;</button></div></div>
-<div id="sidebar"><div id="sidebar-header"><h2>&#x1F916; AI 能力图谱</h2><div class="subtitle" id="stats">loading</div></div>
+<div id="sidebar"><div id="sidebar-header"><div class="nav-bar"><a href="index.html">🏠</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐</a><span class="sep">|</span><a href="note-editor.html">📝</a></div><h2>&#x1F916; AI 能力图谱</h2><div class="subtitle" id="stats">loading</div></div>
 <div id="detail-content"><div class="empty">&#x1F446; hover node to view details</div></div></div>
 <script>
 var svg=d3.select("svg"),g=svg.append("g");
