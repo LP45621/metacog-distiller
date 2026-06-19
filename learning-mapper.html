@@ -61,7 +61,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 .nav-bar a{color:#8b949e;text-decoration:none}
 .nav-bar a:hover{color:#f0f6fc}
 .nav-bar .sep{color:#30363d}
-.node.linked circle{stroke:#f0f6fc;stroke-width:3px;filter:drop-shadow(0 0 6px rgba(240,246,252,0.5))}
+.node.linked circle{stroke:#f0f6fc;stroke-width:3px;stroke-opacity:0.9}
 .node.linked text{font-weight:bold;fill:#f0f6fc}
 .edge.linked{opacity:0.9;stroke-width:2.5;stroke:#58a6ff}
 </style></head>
@@ -91,7 +91,7 @@ var nd=g.append("g").selectAll("g").data(gn).join("g").attr("class",d=>"node "+(
 nd.append("circle").attr("r",nr).on("mouseenter",function(e,d){d3.select(this).transition().duration(150).attr("r",nr(d)+5)}).on("mouseleave",function(e,d){d3.select(this).transition().duration(150).attr("r",nr(d))});
 nd.append("text").text(d=>d.label).style("font-family",'"PingFang SC","Microsoft YaHei",sans-serif');
 var W=document.getElementById("graph-panel").clientWidth,H=document.getElementById("graph-panel").clientHeight;
-s=d3.forceSimulation(gn).force("link",d3.forceLink(ge).id(d=>d.id).distance(d=>{var ds={"part_of":120,"used_in":140,"depends_on":160,"prerequisite":160,"relates_to":200,"example_of":180,"contrasts_with":220,"derives_from":170,"questions":250};return ds[d.type]||160}).strength(0.4)).force("charge",d3.forceManyBody().strength(-650).distanceMax(600)).force("center",d3.forceCenter(W/2,H/2)).force("collision",d3.forceCollide().radius(d=>nr(d)+22)).alphaDecay(0.015).on("tick",()=>{lk.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);nd.attr("transform",d=>"translate("+d.x+","+d.y+")")})}
+s=d3.forceSimulation(gn).force("link",d3.forceLink(ge).id(d=>d.id).distance(d=>{var ds={"part_of":120,"used_in":140,"depends_on":160,"prerequisite":160,"relates_to":200,"example_of":180,"contrasts_with":220,"derives_from":170,"questions":250};return ds[d.type]||160}).strength(0.3)).force("charge",d3.forceManyBody().strength(-650).distanceMax(500)).force("center",d3.forceCenter(W/2,H/2)).force("collision",d3.forceCollide().radius(d=>nr(d)+22)).alphaDecay(0.08).on("tick",()=>{lk.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);nd.attr("transform",d=>"translate("+d.x+","+d.y+")")})}
 function focusNode(d,nd,lk){
 g.selectAll(".node").classed("linked",false);
 g.selectAll(".edge").classed("linked",false);
