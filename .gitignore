@@ -11,6 +11,12 @@ build/
 data/*.json
 data/*.txt
 
+# DeepSeek state
+metacog-system/.deepseek/
+
+# Temp / generated files
+metacog-system/_*.py
+
 # OS
 .DS_Store
 Thumbs.db
