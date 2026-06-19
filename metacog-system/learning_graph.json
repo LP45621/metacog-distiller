@@ -1,11 +1,11 @@
 {
   "user_id": "mu",
   "created": "2026-06-13T18:30:00",
-  "last_distilled": "2026-06-18T14:17:44",
+  "last_distilled": "2026-06-20T10:00:00",
   "type": "learning",
-  "total_distillations": 11,
-  "total_nodes": 84,
-  "total_edges": 69,
+  "total_distillations": 14,
+  "total_nodes": 90,
+  "total_edges": 73,
   "nodes": [
     {
       "id": "l1",
@@ -28,8 +28,8 @@
       "confidence": "certain",
       "status": "learning",
       "status_label": "🟡 学习中",
-      "ask_count": 1,
-      "summary": "从AI对话日志中自动提取认知模式的技术。类比知识蒸馏：Teacher=对话记录，Student=认知画像JSON。分为观测式(被动)和提问式(主动)两种范式。\n时间跨度：2026-05-19 ~ 2026-06-11\n本轮检测: 5次学习信号, 跨度 2026-05-19 ~ 2026-06-11",
+      "ask_count": 3,
+      "summary": "从AI对话日志中自动提取认知模式的技术。类比知识蒸馏：Teacher=对话记录，Student=认知画像JSON。分为观测式(被动)和提问式(主动)两种范式。\n时间跨度：2026-05-19 ~ 2026-06-11\n本轮检测: 5次学习信号, 跨度 2026-05-19 ~ 2026-06-11\n本轮: 2信号, 2026-05-27~2026-06-11",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -41,8 +41,8 @@
       "confidence": "certain",
       "status": "learned",
       "status_label": "🟢 实践中",
-      "ask_count": 5,
-      "summary": "JavaScript数据可视化库(d3.v7)，用于渲染知识/认知图谱。力导向布局，节点按类型着色，支持拖拽缩放点击详情。",
+      "ask_count": 8,
+      "summary": "JavaScript数据可视化库(d3.v7)，用于渲染知识/认知图谱。力导向布局，节点按类型着色，支持拖拽缩放点击详情。\n本轮: 3信号, 2026-04-24~2026-06-05",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -93,8 +93,8 @@
       "confidence": "likely",
       "status": "learning",
       "status_label": "🟡 学习中",
-      "ask_count": 9,
-      "summary": "被CodeWhale编排的AI工具。使用模式：'帮我看着mimo做事，不会了就输入指令继续'——AI监督AI的嵌套代理。\n时间跨度：2026-06-11 ~ 2026-06-11",
+      "ask_count": 12,
+      "summary": "被CodeWhale编排的AI工具。使用模式：'帮我看着mimo做事，不会了就输入指令继续'——AI监督AI的嵌套代理。\n时间跨度：2026-06-11 ~ 2026-06-11\n本轮: 3信号, 2026-06-11~2026-06-11",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -106,8 +106,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 93,
-      "summary": "瑞芯微RK3568(Cortex-A55,Mali-G52,NPU,PCIE,GMAC)搭配RTT实时系统。AD7606驱动开发(D:\\1_RK3568\\Code\\TEST_RK3568_RTT_LT\\hal)。角色设定：入行20年老手。\n时间跨度：2026-04-02 ~ 2026-06-12\n本轮检测: 21次学习信号, 跨度 2026-05-19 ~ 2026-06-12",
+      "ask_count": 110,
+      "summary": "瑞芯微RK3568(Cortex-A55,Mali-G52,NPU,PCIE,GMAC)搭配RTT实时系统。AD7606驱动开发(D:\\1_RK3568\\Code\\TEST_RK3568_RTT_LT\\hal)。角色设定：入行20年老手。\n时间跨度：2026-04-02 ~ 2026-06-12\n本轮检测: 21次学习信号, 跨度 2026-05-19 ~ 2026-06-12\n本轮: 17信号, 2026-05-22~2026-06-12",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -145,8 +145,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 62,
-      "summary": "STM32微控制器开发，⁸⁰提及。核心外设：GPIO/TIM/USART/DMA/NVIC。使用HAL库和CubeMX配置工具。\n时间跨度：2025-03-15 ~ 2026-06-12\n本轮检测: 23次学习信号, 跨度 2025-03-15 ~ 2026-06-11",
+      "ask_count": 75,
+      "summary": "STM32微控制器开发，⁸⁰提及。核心外设：GPIO/TIM/USART/DMA/NVIC。使用HAL库和CubeMX配置工具。\n时间跨度：2025-03-15 ~ 2026-06-12\n本轮检测: 23次学习信号, 跨度 2025-03-15 ~ 2026-06-11\n本轮: 13信号, 2025-03-15~2026-06-04",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -158,8 +158,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 97,
-      "summary": "Serial Peripheral Interface，全双工同步串行通信。四线制：MOSI(主出从入)/MISO(主入从出)/SCLK(时钟)/CS(片选)。支持多从机菊花链或独立片选。¹⁴⁷²提及CS，⁴⁸⁷SCLK。\n时间跨度：2025-08-02 ~ 2026-06-12\n本轮检测: 52次学习信号, 跨度 2025-08-02 ~ 2026-06-12",
+      "ask_count": 132,
+      "summary": "Serial Peripheral Interface，全双工同步串行通信。四线制：MOSI(主出从入)/MISO(主入从出)/SCLK(时钟)/CS(片选)。支持多从机菊花链或独立片选。¹⁴⁷²提及CS，⁴⁸⁷SCLK。\n时间跨度：2025-08-02 ~ 2026-06-12\n本轮检测: 52次学习信号, 跨度 2025-08-02 ~ 2026-06-12\n本轮: 35信号, 2025-08-02~2026-06-11",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -171,8 +171,8 @@
       "confidence": "certain",
       "status": "learning",
       "status_label": "🟡 学习中",
-      "ask_count": 29,
-      "summary": "Analog-to-Digital Conversion，模拟转数字。关键参数：采样率、分辨率(²⁵⁰)、参考电压(⁸)、SNR。AD7606是8通道同步采样ADC，⁸²⁷提及。\n时间跨度：2025-05-11 ~ 2026-06-12\n本轮检测: 12次学习信号, 跨度 2026-05-11 ~ 2026-06-12",
+      "ask_count": 30,
+      "summary": "Analog-to-Digital Conversion，模拟转数字。关键参数：采样率、分辨率(²⁵⁰)、参考电压(⁸)、SNR。AD7606是8通道同步采样ADC，⁸²⁷提及。\n时间跨度：2025-05-11 ~ 2026-06-12\n本轮检测: 12次学习信号, 跨度 2026-05-11 ~ 2026-06-12\n本轮: 1信号, 2026-05-29~2026-05-29",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -184,8 +184,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 60,
-      "summary": "嵌入式Linux开发：内核配置、设备树(Device Tree)、驱动框架、Buildroot/Yocto构建。与RTOS互补：Linux复杂应用层，RTOS实时控制层。\n时间跨度：2025-08-15 ~ 2026-06-12\n本轮检测: 31次学习信号, 跨度 2025-08-02 ~ 2026-06-12",
+      "ask_count": 78,
+      "summary": "嵌入式Linux开发：内核配置、设备树(Device Tree)、驱动框架、Buildroot/Yocto构建。与RTOS互补：Linux复杂应用层，RTOS实时控制层。\n时间跨度：2025-08-15 ~ 2026-06-12\n本轮检测: 31次学习信号, 跨度 2025-08-02 ~ 2026-06-12\n本轮: 18信号, 2025-08-15~2026-05-22",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -197,8 +197,8 @@
       "confidence": "certain",
       "status": "learning",
       "status_label": "🟡 学习中",
-      "ask_count": 45,
-      "summary": "通用输入输出接口。模式：输入(¹⁷³)/输出(²⁰¹)/复用功能(¹¹²)。电路：推挽(⁶⁹)/开漏(⁴²)。中断：上升沿/下降沿(⁸⁰)。²⁵⁴⁶提及中断。\n时间跨度：2025-09-16 ~ 2026-06-12\n本轮检测: 18次学习信号, 跨度 2026-05-11 ~ 2026-06-12",
+      "ask_count": 49,
+      "summary": "通用输入输出接口。模式：输入(¹⁷³)/输出(²⁰¹)/复用功能(¹¹²)。电路：推挽(⁶⁹)/开漏(⁴²)。中断：上升沿/下降沿(⁸⁰)。²⁵⁴⁶提及中断。\n时间跨度：2025-09-16 ~ 2026-06-12\n本轮检测: 18次学习信号, 跨度 2026-05-11 ~ 2026-06-12\n本轮: 4信号, 2025-09-16~2026-06-04",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -223,8 +223,8 @@
       "confidence": "certain",
       "status": "learning",
       "status_label": "🟡 学习中",
-      "ask_count": 11,
-      "summary": "开源实时操作系统内核。任务管理(¹²⁶⁶)、优先级(⁶⁰⁸)、抢占式调度(¹⁸⁴)、时间片(⁶⁴)。IPC：队列(¹³⁵)/信号量(⁴⁰⁹)/互斥量(¹⁷)/任务通知(²)。软件定时器²⁴。\n时间跨度：2025-07-14 ~ 2026-06-12\n本轮检测: 11次学习信号, 跨度 2025-07-31 ~ 2026-05-22",
+      "ask_count": 15,
+      "summary": "开源实时操作系统内核。任务管理(¹²⁶⁶)、优先级(⁶⁰⁸)、抢占式调度(¹⁸⁴)、时间片(⁶⁴)。IPC：队列(¹³⁵)/信号量(⁴⁰⁹)/互斥量(¹⁷)/任务通知(²)。软件定时器²⁴。\n时间跨度：2025-07-14 ~ 2026-06-12\n本轮检测: 11次学习信号, 跨度 2025-07-31 ~ 2026-05-22\n本轮: 4信号, 2025-07-30~2025-07-31",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -236,8 +236,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 27,
-      "summary": "直接存储器访问。STM32中使用³⁵⁶⁶。FIFO ⁶²¹，burst模式³³⁰，双缓冲²⁹。模式：内存到外设(⁵)/外设到内存(⁶)/循环(⁴)。用于ADC高速采样。\n时间跨度：2025-08-01 ~ 2026-06-12\n本轮检测: 27次学习信号, 跨度 2025-08-01 ~ 2026-06-12",
+      "ask_count": 28,
+      "summary": "直接存储器访问。STM32中使用³⁵⁶⁶。FIFO ⁶²¹，burst模式³³⁰，双缓冲²⁹。模式：内存到外设(⁵)/外设到内存(⁶)/循环(⁴)。用于ADC高速采样。\n时间跨度：2025-08-01 ~ 2026-06-12\n本轮检测: 27次学习信号, 跨度 2025-08-01 ~ 2026-06-12\n本轮: 1信号, 2026-05-13~2026-05-13",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -249,8 +249,8 @@
       "confidence": "certain",
       "status": "learning",
       "status_label": "🟡 学习中",
-      "ask_count": 14,
-      "summary": "Python脚本开发。从基础语法(2025-02)到自动化脚本(2026-06)。涉及：文件I/O、JSON处理、HTTP请求、编码处理(GBK/UTF-8)。\n时间跨度：2025-02-15 ~ 2026-06-12\n本轮检测: 14次学习信号, 跨度 2025-02-15 ~ 2026-06-11",
+      "ask_count": 23,
+      "summary": "Python脚本开发。从基础语法(2025-02)到自动化脚本(2026-06)。涉及：文件I/O、JSON处理、HTTP请求、编码处理(GBK/UTF-8)。\n时间跨度：2025-02-15 ~ 2026-06-12\n本轮检测: 14次学习信号, 跨度 2025-02-15 ~ 2026-06-11\n本轮: 9信号, 2025-02-15~2026-06-11",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -262,8 +262,8 @@
       "confidence": "certain",
       "status": "learning",
       "status_label": "🟡 学习中",
-      "ask_count": 37,
-      "summary": "嵌入式核心语言。C用于底层驱动(寄存器操作、中断)，C++用于应用层(面向对象)。RK3568 RTT项目和STM32项目均有实践。\n时间跨度：2025-02-15 ~ 2026-06-12\n本轮检测: 19次学习信号, 跨度 2025-02-15 ~ 2026-06-04",
+      "ask_count": 47,
+      "summary": "嵌入式核心语言。C用于底层驱动(寄存器操作、中断)，C++用于应用层(面向对象)。RK3568 RTT项目和STM32项目均有实践。\n时间跨度：2025-02-15 ~ 2026-06-12\n本轮检测: 19次学习信号, 跨度 2025-02-15 ~ 2026-06-04\n本轮: 10信号, 2025-03-31~2025-12-12",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -275,8 +275,8 @@
       "confidence": "certain",
       "status": "learned",
       "status_label": "🟢 实践中",
-      "ask_count": 0,
-      "summary": "云端AI平台(chat.deepseek.com)。16个月使用，589条对话，2679条消息。双模型：deepseek-chat(3398条)+deepseek-reasoner(2123条)。\n时间跨度：2025-03-18 ~ 2026-06-13",
+      "ask_count": 5,
+      "summary": "云端AI平台(chat.deepseek.com)。16个月使用，589条对话，2679条消息。双模型：deepseek-chat(3398条)+deepseek-reasoner(2123条)。\n时间跨度：2025-03-18 ~ 2026-06-13\n本轮: 5信号, 2025-08-21~2026-06-11",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -288,8 +288,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 5,
-      "summary": "外设驱动综合技能：ADC/SPI/I2C/DMA/GPIO 全协议栈。在RTT框架下实现，涉及HAL层调用。20年经验，代码审查'只读不改'。\n时间跨度：2025-05-28 ~ 2026-06-12\n本轮检测: 25次学习信号, 跨度 2025-06-09 ~ 2026-06-05",
+      "ask_count": 13,
+      "summary": "外设驱动综合技能：ADC/SPI/I2C/DMA/GPIO 全协议栈。在RTT框架下实现，涉及HAL层调用。20年经验，代码审查'只读不改'。\n时间跨度：2025-05-28 ~ 2026-06-12\n本轮检测: 25次学习信号, 跨度 2025-06-09 ~ 2026-06-05\n本轮: 8信号, 2025-07-04~2026-05-12",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -301,8 +301,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 77,
-      "summary": "实时操作系统概念。双RTOS：RTT(⁶³，国产，组件丰富)和FreeRTOS(²⁸，轻量级)。核心：任务调度、中断管理、IPC、内存管理。\n时间跨度：2025-07-14 ~ 2026-06-12\n本轮检测: 28次学习信号, 跨度 2026-03-30 ~ 2026-06-12",
+      "ask_count": 81,
+      "summary": "实时操作系统概念。双RTOS：RTT(⁶³，国产，组件丰富)和FreeRTOS(²⁸，轻量级)。核心：任务调度、中断管理、IPC、内存管理。\n时间跨度：2025-07-14 ~ 2026-06-12\n本轮检测: 28次学习信号, 跨度 2026-03-30 ~ 2026-06-12\n本轮: 4信号, 2026-04-07~2026-05-22",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -327,8 +327,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 94,
-      "summary": "CPOL(时钟极性²⁰⁶)：决定空闲时SCLK电平(0=低/1=高)。CPHA(时钟相位¹⁹³)：决定数据采样边沿(0=第一边沿/1=第二边沿)。组合产生模式0/1/2/3四种工作模式(模式0:⁴⁶,模式3:¹⁰)。主从双方必须一致。\n时间跨度：2025-08-02 ~ 2026-06-12",
+      "ask_count": 96,
+      "summary": "CPOL(时钟极性²⁰⁶)：决定空闲时SCLK电平(0=低/1=高)。CPHA(时钟相位¹⁹³)：决定数据采样边沿(0=第一边沿/1=第二边沿)。组合产生模式0/1/2/3四种工作模式(模式0:⁴⁶,模式3:¹⁰)。主从双方必须一致。\n时间跨度：2025-08-02 ~ 2026-06-12\n本轮: 2信号, 2025-08-02~2025-08-02",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -340,8 +340,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 94,
-      "summary": "CS(片选¹⁴⁷²)：低电平有效，每个从机独立CS。MOSI(¹²⁴)：主出从入数据线。MISO(¹¹⁶)：主入从出数据线。菊花链拓扑(²)：从机串联，共用一个CS。全双工通信(⁶⁵)。\n时间跨度：2025-08-02 ~ 2026-06-12",
+      "ask_count": 99,
+      "summary": "CS(片选¹⁴⁷²)：低电平有效，每个从机独立CS。MOSI(¹²⁴)：主出从入数据线。MISO(¹¹⁶)：主入从出数据线。菊花链拓扑(²)：从机串联，共用一个CS。全双工通信(⁶⁵)。\n时间跨度：2025-08-02 ~ 2026-06-12\n本轮: 5信号, 2025-12-20~2025-12-20",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -353,8 +353,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 27,
-      "summary": "SCL(⁷⁰⁹)/SDA(²³⁹)双线开漏架构(⁴²)，需上拉电阻(¹³⁹)。起始条件(SDA下降沿,¹⁹)/停止条件(SDA上升沿,¹⁵)。7位地址(¹³)可寻址127设备，10位地址(²¹)扩展模式。\n时间跨度：2026-03-20 ~ 2026-06-05",
+      "ask_count": 31,
+      "summary": "SCL(⁷⁰⁹)/SDA(²³⁹)双线开漏架构(⁴²)，需上拉电阻(¹³⁹)。起始条件(SDA下降沿,¹⁹)/停止条件(SDA上升沿,¹⁵)。7位地址(¹³)可寻址127设备，10位地址(²¹)扩展模式。\n时间跨度：2026-03-20 ~ 2026-06-05\n本轮: 4信号, 2026-03-17~2026-06-04",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -379,8 +379,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 45,
-      "summary": "GPIO中断(²⁵⁴⁶)：上升沿(⁸⁰)/下降沿触发。NVIC(⁴¹⁷)嵌套向量中断控制器管理优先级。EXTI线连接GPIO到NVIC。中断处理需去抖动。\n时间跨度：2025-09-16 ~ 2026-06-12",
+      "ask_count": 48,
+      "summary": "GPIO中断(²⁵⁴⁶)：上升沿(⁸⁰)/下降沿触发。NVIC(⁴¹⁷)嵌套向量中断控制器管理优先级。EXTI线连接GPIO到NVIC。中断处理需去抖动。\n时间跨度：2025-09-16 ~ 2026-06-12\n本轮: 3信号, 2026-04-01~2026-06-05",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -457,8 +457,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 61,
-      "summary": "线程(¹⁰²⁹)：RTT基本调度单元。信号量(⁴⁰⁹)/消息队列(²¹)/邮箱(¹³⁴)/事件(⁴⁹⁶)：多种IPC。组件(¹⁵⁰)系统：设备驱动框架(¹²⁸)/DFS(⁷⁶)/Finsh shell(⁶⁴)/ENV配置(¹⁰⁵)。\n时间跨度：2026-03-29 ~ 2026-06-12",
+      "ask_count": 72,
+      "summary": "线程(¹⁰²⁹)：RTT基本调度单元。信号量(⁴⁰⁹)/消息队列(²¹)/邮箱(¹³⁴)/事件(⁴⁹⁶)：多种IPC。组件(¹⁵⁰)系统：设备驱动框架(¹²⁸)/DFS(⁷⁶)/Finsh shell(⁶⁴)/ENV配置(¹⁰⁵)。\n时间跨度：2026-03-29 ~ 2026-06-12\n本轮: 11信号, 2025-04-16~2026-05-21",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -470,8 +470,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 58,
-      "summary": "HAL(³⁵¹⁰)：硬件抽象层，STM32标准开发库。封装外设操作为统一API。CubeMX(⁵⁶)：图形化配置工具，生成初始化代码和引脚配置。\n时间跨度：2025-03-15 ~ 2026-06-11",
+      "ask_count": 60,
+      "summary": "HAL(³⁵¹⁰)：硬件抽象层，STM32标准开发库。封装外设操作为统一API。CubeMX(⁵⁶)：图形化配置工具，生成初始化代码和引脚配置。\n时间跨度：2025-03-15 ~ 2026-06-11\n本轮: 2信号, 2025-08-02~2026-05-21",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -483,8 +483,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 58,
-      "summary": "TIM(²⁵⁴³)：定时器，PWM/输入捕获/编码器。USART(¹⁰⁶¹)：串口通信。DMA(³⁵⁶⁶)：数据传输协处理器。NVIC(⁴¹⁷)：中断管理。GPIO(²⁷²⁷)：最常用外设。\n时间跨度：2025-03-15 ~ 2026-06-11",
+      "ask_count": 64,
+      "summary": "TIM(²⁵⁴³)：定时器，PWM/输入捕获/编码器。USART(¹⁰⁶¹)：串口通信。DMA(³⁵⁶⁶)：数据传输协处理器。NVIC(⁴¹⁷)：中断管理。GPIO(²⁷²⁷)：最常用外设。\n时间跨度：2025-03-15 ~ 2026-06-11\n本轮: 6信号, 2025-07-31~2026-04-20",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -496,8 +496,8 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 50,
-      "summary": "FIFO(⁶²¹)：数据缓冲队列，减少CPU干预。Burst(³³⁰)：批量传输，提高吞吐。双缓冲(²⁹)：交替使用两个缓冲区。循环模式(⁴)：自动重载，用于连续ADC采样。\n时间跨度：2025-08-01 ~ 2026-06-12",
+      "ask_count": 55,
+      "summary": "FIFO(⁶²¹)：数据缓冲队列，减少CPU干预。Burst(³³⁰)：批量传输，提高吞吐。双缓冲(²⁹)：交替使用两个缓冲区。循环模式(⁴)：自动重载，用于连续ADC采样。\n时间跨度：2025-08-01 ~ 2026-06-12\n本轮: 5信号, 2026-04-01~2026-05-20",
       "wiki_description": "",
       "baidu_description": ""
     },
@@ -509,13 +509,13 @@
       "confidence": "certain",
       "status": "asked",
       "status_label": "🔴 多次提问未掌握",
-      "ask_count": 44,
-      "summary": "Cortex-A55(¹⁴)：四核64位ARM CPU。Mali-G52(²)：GPU。NPU(⁵⁵¹)：神经网络加速单元，0.8TOPS。PCIE(¹⁰²)：高速外设接口。GMAC(³⁰)：千兆以太网。SARADC(¹⁸)：逐次逼近ADC。\n时间跨度：2026-05-21 ~ 2026-06-12",
+      "ask_count": 54,
+      "summary": "Cortex-A55(¹⁴)：四核64位ARM CPU。Mali-G52(²)：GPU。NPU(⁵⁵¹)：神经网络加速单元，0.8TOPS。PCIE(¹⁰²)：高速外设接口。GMAC(³⁰)：千兆以太网。SARADC(¹⁸)：逐次逼近ADC。\n时间跨度：2026-05-21 ~ 2026-06-12\n本轮: 10信号, 2026-04-07~2026-06-11",
       "wiki_description": "",
       "baidu_description": ""
     },
     {
-      "id": "la_stm32",
+      "id": "l67",
       "label": "🤔 STM32疑问",
       "type": "question",
       "depth": 2,
@@ -528,7 +528,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_c语言",
+      "id": "l68",
       "label": "🤔 C语言疑问",
       "type": "question",
       "depth": 2,
@@ -541,7 +541,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_python",
+      "id": "l69",
       "label": "🤔 Python疑问",
       "type": "question",
       "depth": 2,
@@ -554,7 +554,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_嵌入式linux",
+      "id": "l70",
       "label": "🤔 嵌入式Linux疑问",
       "type": "question",
       "depth": 2,
@@ -567,7 +567,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_freertos",
+      "id": "l71",
       "label": "🤔 FreeRTOS疑问",
       "type": "question",
       "depth": 2,
@@ -580,7 +580,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_操作系统",
+      "id": "l72",
       "label": "🤔 操作系统疑问",
       "type": "question",
       "depth": 2,
@@ -593,7 +593,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_定时器",
+      "id": "l73",
       "label": "🤔 定时器疑问",
       "type": "question",
       "depth": 2,
@@ -606,7 +606,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_串口",
+      "id": "l74",
       "label": "🤔 串口疑问",
       "type": "question",
       "depth": 2,
@@ -619,7 +619,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_dma",
+      "id": "l75",
       "label": "🤔 DMA疑问",
       "type": "question",
       "depth": 2,
@@ -632,7 +632,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_中断",
+      "id": "l76",
       "label": "🤔 中断疑问",
       "type": "question",
       "depth": 2,
@@ -645,7 +645,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_gpio",
+      "id": "l77",
       "label": "🤔 GPIO疑问",
       "type": "question",
       "depth": 2,
@@ -658,7 +658,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_spi",
+      "id": "l78",
       "label": "🤔 SPI疑问",
       "type": "question",
       "depth": 2,
@@ -671,7 +671,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_i2c",
+      "id": "l79",
       "label": "🤔 I2C疑问",
       "type": "question",
       "depth": 2,
@@ -684,7 +684,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_算法",
+      "id": "l80",
       "label": "🤔 算法疑问",
       "type": "question",
       "depth": 2,
@@ -697,7 +697,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_电路",
+      "id": "l81",
       "label": "🤔 电路疑问",
       "type": "question",
       "depth": 2,
@@ -710,7 +710,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_rtt",
+      "id": "l82",
       "label": "🤔 RTT疑问",
       "type": "question",
       "depth": 2,
@@ -723,7 +723,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_adc",
+      "id": "l83",
       "label": "🤔 ADC疑问",
       "type": "question",
       "depth": 2,
@@ -736,7 +736,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_rk3568",
+      "id": "l84",
       "label": "🤔 RK3568疑问",
       "type": "question",
       "depth": 2,
@@ -782,13 +782,13 @@
       "confidence": "likely",
       "status": "asked",
       "status_label": "🔴 早期探索后搁置",
-      "ask_count": 4,
-      "summary": "Python应用于量化交易：2025-02-15提问'用于量化的Python编程基础有哪些 能否教会我'——从C/C++背景转向Python学习量化。有C语言基础但Python经验有限。4次提问后未继续。",
+      "ask_count": 5,
+      "summary": "Python应用于量化交易：2025-02-15提问'用于量化的Python编程基础有哪些 能否教会我'——从C/C++背景转向Python学习量化。有C语言基础但Python经验有限。4次提问后未继续。\n本轮: 1信号, 2026-04-16~2026-04-16",
       "wiki_description": "",
       "baidu_description": ""
     },
     {
-      "id": "la_量化",
+      "id": "l85",
       "label": "🤔 量化疑问",
       "type": "question",
       "depth": 2,
@@ -801,7 +801,7 @@
       "baidu_description": ""
     },
     {
-      "id": "la_ai原理",
+      "id": "l86",
       "label": "🤔 AI原理疑问",
       "type": "question",
       "depth": 2,
@@ -866,7 +866,7 @@
       "baidu_description": ""
     },
     {
-      "id": "l_k25",
+      "id": "l87",
       "label": "Obsidian",
       "type": "tool",
       "depth": 1,
@@ -879,7 +879,7 @@
       "baidu_description": "Obsidian 是基于 Markdown 的本地知识管理软件，支持双向链接和图谱视图。"
     },
     {
-      "id": "l_k27",
+      "id": "l88",
       "label": "Unicode Encoding Safety",
       "type": "skill",
       "depth": 1,
@@ -1096,6 +1096,84 @@
       "status_label": "🟢 实践中",
       "ask_count": 5,
       "summary": "硬盘健康检测工具：SMART数据读取、磁盘性能测试。涉及硬盘状态监控和维护。\n时间跨度：2026-05-21 ~ 2026-06-11",
+      "wiki_description": "",
+      "baidu_description": ""
+    },
+    {
+      "id": "l66",
+      "label": "通信原理",
+      "type": "concept",
+      "depth": 1,
+      "confidence": "likely",
+      "status": "learning",
+      "status_label": "🟡 学习中",
+      "ask_count": 2,
+      "summary": "数字通信与信息论基础：二进制基带传输系统、信源编码、信息比特率计算。从DeepSeek对话导出数据中发现2次提问。\n时间跨度：2025-06 ~ 2026-06-11",
+      "wiki_description": "",
+      "baidu_description": ""
+    },
+    {
+      "id": "l89",
+      "label": "🤔 通信原理疑问",
+      "type": "question",
+      "depth": 2,
+      "confidence": "certain",
+      "status": "asked",
+      "status_label": "🔴 提问2次",
+      "ask_count": 2,
+      "summary": "在DeepSeek对话中被提问2次。涉及二进制基带传输系统和信源信息比特率。",
+      "wiki_description": "",
+      "baidu_description": ""
+    },
+    {
+      "id": "l90",
+      "label": "我是一名大一下学期的电子信息工程，想进实验室，但是我不知道控制方向是什么，需要哪些基础可以告诉我吗",
+      "type": "question",
+      "depth": 1,
+      "confidence": "likely",
+      "status": "asked",
+      "status_label": "🔴 学习疑问",
+      "ask_count": 2,
+      "summary": "我是一名大一下学期的电子信息工程，想进实验室，但是我不知道控制方向是什么，需要哪些基础可以告诉我吗",
+      "wiki_description": "",
+      "baidu_description": ""
+    },
+    {
+      "id": "l91",
+      "label": "从你说的3开始理解不了了，然后内环外环输出的物理量为什么是高次和低次",
+      "type": "question",
+      "depth": 1,
+      "confidence": "likely",
+      "status": "asked",
+      "status_label": "🔴 学习疑问",
+      "ask_count": 2,
+      "summary": "从你说的3开始理解不了了，然后内环外环输出的物理量为什么是高次和低次",
+      "wiki_description": "",
+      "baidu_description": ""
+    },
+    {
+      "id": "l92",
+      "label": "#include <iostream>\n#include <vector>\n#include <ar...",
+      "type": "question",
+      "depth": 1,
+      "confidence": "likely",
+      "status": "asked",
+      "status_label": "🔴 学习疑问",
+      "ask_count": 2,
+      "summary": "#include <iostream>\n#include <vector>\n#include <array>\nusing",
+      "wiki_description": "",
+      "baidu_description": ""
+    },
+    {
+      "id": "l93",
+      "label": "<table><tr><th>macro</th><th>macro value</th><th>d...",
+      "type": "question",
+      "depth": 1,
+      "confidence": "likely",
+      "status": "asked",
+      "status_label": "🔴 学习疑问",
+      "ask_count": 2,
+      "summary": "<table><tr><th>macro</th><th>macro value</th><th>description",
       "wiki_description": "",
       "baidu_description": ""
     }
@@ -1366,61 +1444,61 @@
       "label": "HAL操作外设"
     },
     {
-      "source": "la_stm32",
+      "source": "l67",
       "target": "l11",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_python",
+      "source": "l69",
       "target": "l19",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_freertos",
+      "source": "l71",
       "target": "l17",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_dma",
+      "source": "l75",
       "target": "l18",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_中断",
+      "source": "l76",
       "target": "l34",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_gpio",
+      "source": "l77",
       "target": "l15",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_spi",
+      "source": "l78",
       "target": "l12",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_i2c",
+      "source": "l79",
       "target": "l16",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_rtt",
+      "source": "l82",
       "target": "l8",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_rk3568",
+      "source": "l84",
       "target": "l8",
       "type": "questions",
       "label": "提问"
@@ -1450,13 +1528,13 @@
       "label": "在DeepSeek平台询问AI原理"
     },
     {
-      "source": "la_量化",
+      "source": "l85",
       "target": "l25",
       "type": "questions",
       "label": "提问"
     },
     {
-      "source": "la_ai原理",
+      "source": "l86",
       "target": "l26",
       "type": "questions",
       "label": "提问"
@@ -1514,6 +1592,30 @@
       "target": "l58",
       "type": "part_of",
       "label": "Python脚本→量化编程实践"
+    },
+    {
+      "source": "l66",
+      "target": "l60",
+      "type": "relates_to",
+      "label": "通信原理与信号处理相关"
+    },
+    {
+      "source": "l66",
+      "target": "l57",
+      "type": "depends_on",
+      "label": "通信原理是网络协议基础"
+    },
+    {
+      "source": "l89",
+      "target": "l66",
+      "type": "questions",
+      "label": "提问"
+    },
+    {
+      "source": "l66",
+      "target": "l21",
+      "type": "relates_to",
+      "label": "在DeepSeek上学习通信原理"
     }
   ]
 }
