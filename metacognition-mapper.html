@@ -82,8 +82,10 @@ gn=data.nodes.map(n=>Object.assign({},n));
 ge=data.edges.map(e=>Object.assign({},e));
 document.getElementById("stats").textContent=gn.length+" nodes · "+ge.length+" edges";
 var lk=g.append("g").selectAll("line").data(ge).join("line").attr("class",d=>"edge "+(d.type||"influences")).attr("stroke-width",1.4);
-var nd=g.append("g").selectAll("g").data(gn).join("g").attr("class",d=>"node "+(d.type||"domain")).call(d3.drag().on("start",(e,d)=>{if(!e.active)s.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y}).on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y}).on("end",(e,d)=>{if(!e.active)s.alphaTarget(0);d.fx=null;d.fy=null})).on("mouseenter",function(e,d){focusNode(d,nd,lk);sd(d)});
-nd.append("circle").attr("r",nr).on("mouseenter",function(e,d){d3.select(this).transition().duration(150).attr("r",nr(d)+5)}).on("mouseleave",function(e,d){d3.select(this).transition().duration(150).attr("r",nr(d))});
+var nd=g.append("g").selectAll("g").data(gn).join("g").attr("class",d=>"node "+(d.type||"domain")).call(d3.drag().on("start",(e,d)=>{if(!e.active)s.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y}).on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y}).on("end",(e,d)=>{if(!e.active)s.alphaTarget(0);d.fx=null;d.fy=null}));
+var circles=nd.append("circle").attr("r",nr);
+circles.on("mouseenter",function(e,d){focusNode(d,nd,lk);sd(d);d3.select(this).transition().duration(150).attr("r",nr(d)+5)});
+circles.on("mouseleave",function(e,d){g.selectAll(".node").classed("linked",false);g.selectAll(".edge").classed("linked",false);d3.select(this).transition().duration(150).attr("r",nr(d))});
 nd.append("text").text(d=>d.label).style("font-family",'"PingFang SC","Microsoft YaHei",sans-serif');
 var W=document.getElementById("graph-panel").clientWidth,H=document.getElementById("graph-panel").clientHeight;
 s=d3.forceSimulation(gn).force("link",d3.forceLink(ge).id(d=>d.id).distance(d=>{var ds={"supports":130,"derives_from":150,"conflicts":200,"influences":170,"avoids":180,"corrects":140,"questions":160};return ds[d.type]||160}).strength(0.3)).force("charge",d3.forceManyBody().strength(-600).distanceMax(500)).force("center",d3.forceCenter(W/2,H/2)).force("collision",d3.forceCollide().radius(d=>nr(d)+20)).alphaDecay(0.08).on("tick",()=>{lk.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);nd.attr("transform",d=>"translate("+d.x+","+d.y+")")})}

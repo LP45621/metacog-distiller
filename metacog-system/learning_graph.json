@@ -1,9 +1,9 @@
 {
   "user_id": "mu",
   "created": "2026-06-13T18:30:00",
-  "last_distilled": "2026-06-20T10:00:00",
+  "last_distilled": "2026-06-20T17:30:00",
   "type": "learning",
-  "total_distillations": 14,
+  "total_distillations": 15,
   "total_nodes": 90,
   "total_edges": 73,
   "nodes": [
