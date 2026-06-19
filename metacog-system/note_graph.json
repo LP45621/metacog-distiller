@@ -1,0 +1,1875 @@
+{
+  "nodes": [
+    {
+      "id": "AD_AD7606特性",
+      "label": "AD:AD7606特性",
+      "type": "concept",
+      "summary": "AD:AD7606特性\n\n8通道同步采样ADC(⁸²⁷)。真双极性输入±10V/±5V。16位分辨率。200kSPS采样率。SPI/并行接口。内置2.5V参考电压(参考电压⁸)。过采样(⁶¹)提高分辨率。同步采样(²¹)消除通道间相位差。\n时间跨度：2025-05-11 ~ 2026-06-12",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\AD_AD7606特性.md"
+    },
+    {
+      "id": "AD_采样参数",
+      "label": "AD:采样参数",
+      "type": "concept",
+      "summary": "AD:采样参数\n\n采样率：奈奎斯特采样定理(fs≥2fmax)。分辨率(²⁵⁰)：位数越高精度越高(16位=65536级)。量化噪声：LSB/2。参考电压(⁸)：决定输入范围。过采样(⁶¹)：N倍过采样可提高log4(N)位分辨率。\n时间跨度：2025-05-11 ~ 2026-06-12",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\AD_采样参数.md"
+    },
+    {
+      "id": "AD模数转换",
+      "label": "AD模数转换",
+      "type": "concept",
+      "summary": "AD模数转换\n\nAnalog-to-Digital Conversion，模拟转数字。关键参数：采样率、分辨率(²⁵⁰)、参考电压(⁸)、SNR。AD7606是8通道同步采样ADC，⁸²⁷提及。\n时间跨度：2025-05-11 ~ 2026-06-12\n本轮检测: 12次学习信号, 跨度 2026-05-11 ~ 2026-06-12",
+      "backlink_count": 4,
+      "link_count": 4,
+      "file": "notes\\AD模数转换.md"
+    },
+    {
+      "id": "Agent体系",
+      "label": "Agent体系",
+      "type": "concept",
+      "summary": "Agent体系\n\nCodeWhale多agent架构：主agent协调，子agent并行执行。fork_context共享上下文实现prefix-cache复用。automation支持定时触发。\n时间跨度：2026-04-11 ~ 2026-06-11",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\Agent体系.md"
+    },
+    {
+      "id": "AI_LLM原理",
+      "label": "AI/LLM原理",
+      "type": "concept",
+      "summary": "AI/LLM原理\n\nAI大语言模型工作原理：用户早期（2025-02-15）连续8次询问'你是通过什么原理和语言生成的'——对AI底层机制有好奇心。此后未再追问，可能因后续大量使用AI而问题自然消解。\n时间跨度：2025-02-15 ~ 2026-06-11",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\AI_LLM原理.md"
+    },
+    {
+      "id": "AI编排能力",
+      "label": "AI编排能力",
+      "type": "strategy",
+      "summary": "AI编排能力\n\n【元认知含义】将AI视为可编排的资源而非单一工具。能设计多层AI协作架构——让AI监控AI、AI调度AI。\n\n【证据链】'帮我看着mimo做事，它不会了或者没动了就输入指令让他继续'→CodeWhale子agent并行工作→automation定时触发蒸馏。三层嵌套：用户→CodeWhale→mimo/sub-agents。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\AI编排能力.md"
+    },
+    {
+      "id": "C_C++编程",
+      "label": "C/C++编程",
+      "type": "skill",
+      "summary": "C/C++编程\n\n嵌入式核心语言。C用于底层驱动(寄存器操作、中断)，C++用于应用层(面向对象)。RK3568 RTT项目和STM32项目均有实践。\n时间跨度：2025-02-15 ~ 2026-06-12\n本轮检测: 19次学习信号, 跨度 2025-02-15 ~ 2026-06-04",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\C_C++编程.md"
+    },
+    {
+      "id": "clean_garbled.py",
+      "label": "clean_garbled.py",
+      "type": "tool",
+      "summary": "clean_garbled.py\n\n【本质】批量JSON乱码检测修复工具，过滤Unicode控制字符和替换字符，确保图谱数据在序列化/渲染时不出现乱码。\n【关键参数】语言: Python；核心函数: safe_str()过滤C1控制字符(0x80-0x9F)和替换字符(\\ufffd)；输入: JSON图谱文件；输出: 清洗后的JSON。\n【项目关联】metacog-system核心工具链组件，与b",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\clean_garbled.py.md"
+    },
+    {
+      "id": "CodeWhale",
+      "label": "CodeWhale",
+      "type": "tool",
+      "summary": "CodeWhale\n\n本地AI编程助手，支持agent/skill/automation三层体系。agent_open创建子agent并行工作，skill装载领域知识，automation_create创建定时任务。\n时间跨度：2026-06-11 ~ 2026-06-12",
+      "backlink_count": 6,
+      "link_count": 6,
+      "file": "notes\\CodeWhale.md"
+    },
+    {
+      "id": "D3.js力导向图",
+      "label": "D3.js力导向图",
+      "type": "tool",
+      "summary": "D3.js力导向图\n\nJavaScript数据可视化库(d3.v7)，用于渲染知识/认知图谱。力导向布局，节点按类型着色，支持拖拽缩放点击详情。",
+      "backlink_count": 3,
+      "link_count": 3,
+      "file": "notes\\D3.js力导向图.md"
+    },
+    {
+      "id": "DeepSeek平台",
+      "label": "DeepSeek平台",
+      "type": "tool",
+      "summary": "DeepSeek平台\n\n云端AI平台(chat.deepseek.com)。16个月使用，589条对话，2679条消息。双模型：deepseek-chat(3398条)+deepseek-reasoner(2123条)。\n时间跨度：2025-03-18 ~ 2026-06-13",
+      "backlink_count": 4,
+      "link_count": 4,
+      "file": "notes\\DeepSeek平台.md"
+    },
+    {
+      "id": "DMA_传输模式",
+      "label": "DMA:传输模式",
+      "type": "concept",
+      "summary": "DMA:传输模式\n\nFIFO(⁶²¹)：数据缓冲队列，减少CPU干预。Burst(³³⁰)：批量传输，提高吞吐。双缓冲(²⁹)：交替使用两个缓冲区。循环模式(⁴)：自动重载，用于连续ADC采样。\n时间跨度：2025-08-01 ~ 2026-06-12",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\DMA_传输模式.md"
+    },
+    {
+      "id": "DMA传输",
+      "label": "DMA传输",
+      "type": "concept",
+      "summary": "DMA传输\n\n直接存储器访问。STM32中使用³⁵⁶⁶。FIFO ⁶²¹，burst模式³³⁰，双缓冲²⁹。模式：内存到外设(⁵)/外设到内存(⁶)/循环(⁴)。用于ADC高速采样。\n时间跨度：2025-08-01 ~ 2026-06-12\n本轮检测: 27次学习信号, 跨度 2025-08-01 ~ 2026-06-12",
+      "backlink_count": 3,
+      "link_count": 3,
+      "file": "notes\\DMA传输.md"
+    },
+    {
+      "id": "DMA直接存储器访问",
+      "label": "DMA直接存储器访问",
+      "type": "concept",
+      "summary": "DMA直接存储器访问\n\nDirect Memory Access，外设与内存之间不经过CPU的数据传输。关键参数：通道、传输方向、数据宽度、突发传输。在ADC/SPI/USART等外设中均有配置需求，³¹提及。\n时间跨度：2025-08-01 ~ 2026-06-12",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\DMA直接存储器访问.md"
+    },
+    {
+      "id": "FreeLLMAPI",
+      "label": "FreeLLMAPI",
+      "type": "tool",
+      "summary": "FreeLLMAPI\n\n本地LLM API代理(localhost:3001)，/v1/chat/completions端点。缓存响应、健康检查(300s)、catalog同步(12h)。数据库：D:\\freellmapi\\server\\data\\freeapi.db。",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\FreeLLMAPI.md"
+    },
+    {
+      "id": "FreeRTOS",
+      "label": "FreeRTOS",
+      "type": "tool",
+      "summary": "FreeRTOS\n\n开源实时操作系统内核。任务管理(¹²⁶⁶)、优先级(⁶⁰⁸)、抢占式调度(¹⁸⁴)、时间片(⁶⁴)。IPC：队列(¹³⁵)/信号量(⁴⁰⁹)/互斥量(¹⁷)/任务通知(²)。软件定时器²⁴。\n时间跨度：2025-07-14 ~ 2026-06-12\n本轮检测: 11次学习信号, 跨度 2025-07-31 ~ 2026-05-22",
+      "backlink_count": 4,
+      "link_count": 4,
+      "file": "notes\\FreeRTOS.md"
+    },
+    {
+      "id": "FreeRTOS_IPC机制",
+      "label": "FreeRTOS:IPC机制",
+      "type": "concept",
+      "summary": "FreeRTOS:IPC机制\n\n队列(¹³⁵)：任务间数据传递，支持超时。二值信号量(⁴⁰⁹)：同步/互斥，take/give操作。互斥量(¹⁷)：优先级继承防反转。任务通知(²)：轻量级替代，无需独立对象。\n时间跨度：2025-07-30 ~ 2026-05-22",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\FreeRTOS_IPC机制.md"
+    },
+    {
+      "id": "FreeRTOS_任务管理",
+      "label": "FreeRTOS:任务管理",
+      "type": "concept",
+      "summary": "FreeRTOS:任务管理\n\n任务(¹²⁶⁶)是基本执行单元。优先级(⁶⁰⁸)：0~(configMAX_PRIORITIES-1)，高优先级抢占低优先级(¹⁸⁴)。时间片轮转(⁶⁴)：同优先级任务轮流执行。vTaskDelay(¹²)延时。\n时间跨度：2025-07-30 ~ 2026-05-22",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\FreeRTOS_任务管理.md"
+    },
+    {
+      "id": "Git版本控制",
+      "label": "Git版本控制",
+      "type": "tool",
+      "summary": "Git版本控制\n\nGit分布式版本控制系统，GitHub平台使用。涉及clone/push/pull/commit/branch等操作。在CodeWhale工作流和proj-polish等Skill中涉及自动化提交。\n时间跨度：2025-11-21 ~ 2026-06-12",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\Git版本控制.md"
+    },
+    {
+      "id": "GPIO_中断系统",
+      "label": "GPIO:中断系统",
+      "type": "concept",
+      "summary": "GPIO:中断系统\n\nGPIO中断(²⁵⁴⁶)：上升沿(⁸⁰)/下降沿触发。NVIC(⁴¹⁷)嵌套向量中断控制器管理优先级。EXTI线连接GPIO到NVIC。中断处理需去抖动。\n时间跨度：2025-09-16 ~ 2026-06-12",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\GPIO_中断系统.md"
+    },
+    {
+      "id": "GPIO_输出配置",
+      "label": "GPIO:输出配置",
+      "type": "concept",
+      "summary": "GPIO:输出配置\n\n推挽输出(⁶⁹)：高低电平均可驱动，最常见。开漏输出(⁴²)：仅低电平驱动，高电平需上拉，适合I2C/电平转换。复用功能模式(¹¹²)：外设接管GPIO。\n时间跨度：2025-09-16 ~ 2026-06-12",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\GPIO_输出配置.md"
+    },
+    {
+      "id": "GPIO编程",
+      "label": "GPIO编程",
+      "type": "concept",
+      "summary": "GPIO编程\n\n通用输入输出接口。模式：输入(¹⁷³)/输出(²⁰¹)/复用功能(¹¹²)。电路：推挽(⁶⁹)/开漏(⁴²)。中断：上升沿/下降沿(⁸⁰)。²⁵⁴⁶提及中断。\n时间跨度：2025-09-16 ~ 2026-06-12\n本轮检测: 18次学习信号, 跨度 2026-05-11 ~ 2026-06-12",
+      "backlink_count": 4,
+      "link_count": 4,
+      "file": "notes\\GPIO编程.md"
+    },
+    {
+      "id": "HTML_CSS_JS",
+      "label": "HTML/CSS/JS",
+      "type": "skill",
+      "summary": "HTML/CSS/JS\n\n前端开发三件套：HTML5结构、CSS3样式布局、JavaScript交互逻辑。在D3.js图谱可视化项目中被实际应用。\n时间跨度：2025-05-21 ~ 2026-04-10",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\HTML_CSS_JS.md"
+    },
+    {
+      "id": "I2C_电气与寻址",
+      "label": "I2C:电气与寻址",
+      "type": "concept",
+      "summary": "I2C:电气与寻址\n\nSCL(⁷⁰⁹)/SDA(²³⁹)双线开漏架构(⁴²)，需上拉电阻(¹³⁹)。起始条件(SDA下降沿,¹⁹)/停止条件(SDA上升沿,¹⁵)。7位地址(¹³)可寻址127设备，10位地址(²¹)扩展模式。\n时间跨度：2026-03-20 ~ 2026-06-05",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\I2C_电气与寻址.md"
+    },
+    {
+      "id": "I2C_速率模式",
+      "label": "I2C:速率模式",
+      "type": "concept",
+      "summary": "I2C:速率模式\n\n标准模式：100kbps。快速模式(³⁷)：400kbps。高速模式(³)：3.4Mbps。速率由SCL频率决定，受上拉电阻和总线电容限制。\n时间跨度：2026-03-20 ~ 2026-06-05",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\I2C_速率模式.md"
+    },
+    {
+      "id": "I2C通信协议",
+      "label": "I2C通信协议",
+      "type": "concept",
+      "summary": "I2C通信协议\n\n集成电路间总线，双线制(SCL ⁷⁰⁹/SDA ²³⁹)同步半双工。起始/停止条件(19/¹⁵)。7位(¹³)/10位(²¹)寻址。标准/快速(³⁷)/高速模式。上拉电阻¹³⁹。\n时间跨度：2025-10-14 ~ 2026-06-11\n本轮检测: 42次学习信号, 跨度 2025-11-03 ~ 2026-06-12",
+      "backlink_count": 4,
+      "link_count": 4,
+      "file": "notes\\I2C通信协议.md"
+    },
+    {
+      "id": "less-tokens",
+      "label": "less-tokens",
+      "type": "tool",
+      "summary": "less-tokens\n\nPython词法压缩库(PyPI v0.5.1)，确定性无训练压缩，减少30-40% token。API：compress()和smart_compress()。MIT许可证，作者Shamin Chokshi。",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\less-tokens.md"
+    },
+    {
+      "id": "Linux嵌入式",
+      "label": "Linux嵌入式",
+      "type": "concept",
+      "summary": "Linux嵌入式\n\n嵌入式Linux开发：内核配置、设备树(Device Tree)、驱动框架、Buildroot/Yocto构建。与RTOS互补：Linux复杂应用层，RTOS实时控制层。\n时间跨度：2025-08-15 ~ 2026-06-12\n本轮检测: 31次学习信号, 跨度 2025-08-02 ~ 2026-06-12",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\Linux嵌入式.md"
+    },
+    {
+      "id": "mimo",
+      "label": "mimo",
+      "type": "tool",
+      "summary": "mimo\n\n被CodeWhale编排的AI工具。使用模式：'帮我看着mimo做事，不会了就输入指令继续'——AI监督AI的嵌套代理。\n时间跨度：2026-06-11 ~ 2026-06-11",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\mimo.md"
+    },
+    {
+      "id": "NVIC中断控制器",
+      "label": "NVIC中断控制器",
+      "type": "concept",
+      "summary": "NVIC中断控制器\n\nNested Vectored Interrupt Controller，嵌套向量中断控制器。管理中断优先级(抢占优先级vs响应优先级)、中断使能、中断向量表。在STM32和RK3568上配置差异明显。\n时间跨度：2025-05-18 ~ 2026-06-12",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\NVIC中断控制器.md"
+    },
+    {
+      "id": "Obsidian",
+      "label": "Obsidian",
+      "type": "tool",
+      "summary": "Obsidian\n\nKnowledge management tool, asked but not deeply explored. Possible reference for metacog-distiller design.",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\Obsidian.md"
+    },
+    {
+      "id": "Obsidian知识管理",
+      "label": "Obsidian知识管理",
+      "type": "tool",
+      "summary": "Obsidian知识管理\n\n【本质】基于本地Markdown文件的知识管理软件，支持双向链接和图谱视图，可用于个人知识网络构建。\n【关键参数】平台: Windows/Mac/Linux/mobile；存储: 本地Markdown文件；核心功能: 双向链接、图谱视图、插件生态、每日笔记。\n【项目关联】被问及但未采用——用户选择自建元认知蒸馏方案替代，体现了'先查后建'策略和自建偏好。",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\Obsidian知识管理.md"
+    },
+    {
+      "id": "PDF处理",
+      "label": "PDF处理",
+      "type": "tool",
+      "summary": "PDF处理\n\nPDF文档处理工具与技能：数据手册阅读提取、PDF转文本、水印处理。AD7606数据手册阅读是典型应用场景。\n时间跨度：2025-06-24 ~ 2026-05-23",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\PDF处理.md"
+    },
+    {
+      "id": "PyInstaller打包",
+      "label": "PyInstaller打包",
+      "type": "skill",
+      "summary": "PyInstaller打包\n\nPython→Windows EXE打包技术。命令：python -m PyInstaller --onefile。v6.20.0。注意GBK终端emoji编码问题。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\PyInstaller打包.md"
+    },
+    {
+      "id": "Python编程",
+      "label": "Python编程",
+      "type": "skill",
+      "summary": "Python编程\n\nPython脚本开发。从基础语法(2025-02)到自动化脚本(2026-06)。涉及：文件I/O、JSON处理、HTTP请求、编码处理(GBK/UTF-8)。\n时间跨度：2025-02-15 ~ 2026-06-12\n本轮检测: 14次学习信号, 跨度 2025-02-15 ~ 2026-06-11",
+      "backlink_count": 7,
+      "link_count": 7,
+      "file": "notes\\Python编程.md"
+    },
+    {
+      "id": "Python脚本开发",
+      "label": "Python脚本开发",
+      "type": "skill",
+      "summary": "Python脚本开发\n\nPython编程技能：从基础语法(2025-02)到自动化脚本(2026-06)。涉及文件I/O、JSON处理、HTTP请求、编码处理(GBK/UTF-8)、数据分析。\n时间跨度：2025-02-15 ~ 2026-06-12",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\Python脚本开发.md"
+    },
+    {
+      "id": "Python量化编程",
+      "label": "Python量化编程",
+      "type": "skill",
+      "summary": "Python量化编程\n\nPython应用于量化交易：2025-02-15提问'用于量化的Python编程基础有哪些 能否教会我'——从C/C++背景转向Python学习量化。有C语言基础但Python经验有限。4次提问后未继续。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\Python量化编程.md"
+    },
+    {
+      "id": "RK3568+RTT嵌入式项目",
+      "label": "RK3568+RTT嵌入式项目",
+      "type": "project",
+      "summary": "RK3568+RTT嵌入式项目\n\n瑞芯微RK3568(Cortex-A55,Mali-G52,NPU,PCIE,GMAC)搭配RTT实时系统。AD7606驱动开发(D:\\1_RK3568\\Code\\TEST_RK3568_RTT_LT\\hal)。角色设定：入行20年老手。\n时间跨度：2026-04-02 ~ 2026-06-12\n本轮检测: 21次学习信号, 跨度 2026-05-19 ~ 202",
+      "backlink_count": 9,
+      "link_count": 9,
+      "file": "notes\\RK3568+RTT嵌入式项目.md"
+    },
+    {
+      "id": "RK3568_芯片架构",
+      "label": "RK3568:芯片架构",
+      "type": "concept",
+      "summary": "RK3568:芯片架构\n\nCortex-A55(¹⁴)：四核64位ARM CPU。Mali-G52(²)：GPU。NPU(⁵⁵¹)：神经网络加速单元，0.8TOPS。PCIE(¹⁰²)：高速外设接口。GMAC(³⁰)：千兆以太网。SARADC(¹⁸)：逐次逼近ADC。\n时间跨度：2026-05-21 ~ 2026-06-12",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\RK3568_芯片架构.md"
+    },
+    {
+      "id": "RTT_内核机制",
+      "label": "RTT:内核机制",
+      "type": "concept",
+      "summary": "RTT:内核机制\n\n线程(¹⁰²⁹)：RTT基本调度单元。信号量(⁴⁰⁹)/消息队列(²¹)/邮箱(¹³⁴)/事件(⁴⁹⁶)：多种IPC。组件(¹⁵⁰)系统：设备驱动框架(¹²⁸)/DFS(⁷⁶)/Finsh shell(⁶⁴)/ENV配置(¹⁰⁵)。\n时间跨度：2026-03-29 ~ 2026-06-12",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\RTT_内核机制.md"
+    },
+    {
+      "id": "Set-and-forget 偏好",
+      "label": "Set-and-forget 偏好",
+      "type": "meta",
+      "summary": "Set-and-forget 偏好\n\n【元认知含义】偏好'配置一次，永远运行'的系统模式。这是一种深层的认知偏好——希望系统在配置完成后不再需要认知负担。\n\n【证据链】'后台挂一个''隔一段时间就自己整理'→automation每4小时运行→双automation并行。本质是对认知资源的最优化分配。",
+      "backlink_count": 0,
+      "link_count": 4,
+      "file": "notes\\Set-and-forget 偏好.md"
+    },
+    {
+      "id": "SPI_时钟极性与相位",
+      "label": "SPI:时钟极性与相位",
+      "type": "concept",
+      "summary": "SPI:时钟极性与相位\n\nCPOL(时钟极性²⁰⁶)：决定空闲时SCLK电平(0=低/1=高)。CPHA(时钟相位¹⁹³)：决定数据采样边沿(0=第一边沿/1=第二边沿)。组合产生模式0/1/2/3四种工作模式(模式0:⁴⁶,模式3:¹⁰)。主从双方必须一致。\n时间跨度：2025-08-02 ~ 2026-06-12",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\SPI_时钟极性与相位.md"
+    },
+    {
+      "id": "SPI_片选与主从架构",
+      "label": "SPI:片选与主从架构",
+      "type": "concept",
+      "summary": "SPI:片选与主从架构\n\nCS(片选¹⁴⁷²)：低电平有效，每个从机独立CS。MOSI(¹²⁴)：主出从入数据线。MISO(¹¹⁶)：主入从出数据线。菊花链拓扑(²)：从机串联，共用一个CS。全双工通信(⁶⁵)。\n时间跨度：2025-08-02 ~ 2026-06-12",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\SPI_片选与主从架构.md"
+    },
+    {
+      "id": "SPI通信协议",
+      "label": "SPI通信协议",
+      "type": "concept",
+      "summary": "SPI通信协议\n\nSerial Peripheral Interface，全双工同步串行通信。四线制：MOSI(主出从入)/MISO(主入从出)/SCLK(时钟)/CS(片选)。支持多从机菊花链或独立片选。¹⁴⁷²提及CS，⁴⁸⁷SCLK。\n时间跨度：2025-08-02 ~ 2026-06-12\n本轮检测: 52次学习信号, 跨度 2025-08-02 ~ 2026-06-12",
+      "backlink_count": 6,
+      "link_count": 6,
+      "file": "notes\\SPI通信协议.md"
+    },
+    {
+      "id": "STM32_HAL库与CubeMX",
+      "label": "STM32:HAL库与CubeMX",
+      "type": "concept",
+      "summary": "STM32:HAL库与CubeMX\n\nHAL(³⁵¹⁰)：硬件抽象层，STM32标准开发库。封装外设操作为统一API。CubeMX(⁵⁶)：图形化配置工具，生成初始化代码和引脚配置。\n时间跨度：2025-03-15 ~ 2026-06-11",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\STM32_HAL库与CubeMX.md"
+    },
+    {
+      "id": "STM32_外设体系",
+      "label": "STM32:外设体系",
+      "type": "concept",
+      "summary": "STM32:外设体系\n\nTIM(²⁵⁴³)：定时器，PWM/输入捕获/编码器。USART(¹⁰⁶¹)：串口通信。DMA(³⁵⁶⁶)：数据传输协处理器。NVIC(⁴¹⁷)：中断管理。GPIO(²⁷²⁷)：最常用外设。\n时间跨度：2025-03-15 ~ 2026-06-11",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\STM32_外设体系.md"
+    },
+    {
+      "id": "STM32嵌入式开发",
+      "label": "STM32嵌入式开发",
+      "type": "project",
+      "summary": "STM32嵌入式开发\n\nSTM32微控制器开发，⁸⁰提及。核心外设：GPIO/TIM/USART/DMA/NVIC。使用HAL库和CubeMX配置工具。\n时间跨度：2025-03-15 ~ 2026-06-12\n本轮检测: 23次学习信号, 跨度 2025-03-15 ~ 2026-06-11",
+      "backlink_count": 9,
+      "link_count": 9,
+      "file": "notes\\STM32嵌入式开发.md"
+    },
+    {
+      "id": "Timer定时器",
+      "label": "Timer定时器",
+      "type": "concept",
+      "summary": "Timer定时器\n\nSTM32/RK3568通用定时器(TIM)编程，涵盖PWM输出、输入捕获、编码器模式。HAL库TIM_HandleTypeDef配置。在RK3568 RTT项目和STM32项目中高频使用。\n时间跨度：2025-07-18 ~ 2026-06-12",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\Timer定时器.md"
+    },
+    {
+      "id": "Unicode Encoding Safety",
+      "label": "Unicode Encoding Safety",
+      "type": "skill",
+      "summary": "Unicode Encoding Safety\n\nMastered Unicode control char filtering, CJK font stack config, HTML safe cleaning through this garbled-text debugging session.",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\Unicode Encoding Safety.md"
+    },
+    {
+      "id": "USART_UART",
+      "label": "USART/UART",
+      "type": "concept",
+      "summary": "USART/UART\n\n通用同步/异步收发器，串行通信基础协议。关键参数：波特率、数据位(8/9)、停止位(1/2)、校验位。在嵌入式调试和模块通信(BLE/WiFi)中高频使用。\n时间跨度：2025-05-19 ~ 2026-06-05",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\USART_UART.md"
+    },
+    {
+      "id": "VSCode_编辑器",
+      "label": "VSCode/编辑器",
+      "type": "tool",
+      "summary": "VSCode/编辑器\n\nVisual Studio Code编辑器使用，包括插件配置、远程开发、调试环境搭建。在CodeWhale相关会话和嵌入式项目中都涉及编辑器选择与配置。\n时间跨度：2025-08-02 ~ 2026-06-05",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\VSCode_编辑器.md"
+    },
+    {
+      "id": "主动蒸馏意识",
+      "label": "主动蒸馏意识",
+      "type": "meta",
+      "summary": "主动蒸馏意识\n\n【元认知含义】能够将自身的认知过程外化为可操作的技术概念——这是强元认知的标志。不仅意识到自己在思考，还能将'思考过程'本身建模为可处理的数据流(知识蒸馏类比)。\n\n【证据链】两次主动提出蒸馏类比：首次在讨论元认知可视化时('是不是有点像蒸馏了')，第二次在嵌入agent时再次确认。这种类比不是AI引导的，是用户主动将机器学习概念应用到认知科学领域。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\主动蒸馏意识.md"
+    },
+    {
+      "id": "信号处理",
+      "label": "信号处理",
+      "type": "concept",
+      "summary": "信号处理\n\n数字信号处理基础：傅里叶变换、采样定理(奈奎斯特)、滤波器设计(IIR/FIR)、频谱分析。在AD7606数据采集和音频处理任务中涉及。\n时间跨度：2025-05-11 ~ 2026-05-22",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\信号处理.md"
+    },
+    {
+      "id": "元认知可视化探索",
+      "label": "元认知可视化探索",
+      "type": "domain",
+      "summary": "元认知可视化探索\n\n【元认知含义】主动寻求将内在认知过程外化和可视化的需求——这是元认知意识的外在表现。不仅是'想知道自己在想什么'，而是'想把思维变成可操作的图谱'。\n\n【证据链】核心会话主题，从搜索GitHub知识图谱工具开始→收敛到构建自己的蒸馏系统→最终形成双库(元认知+知识)体系。16个月的AI使用史中，这是首次如此系统地处理自身认知模式。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\元认知可视化探索.md"
+    },
+    {
+      "id": "元认知蒸馏",
+      "label": "元认知蒸馏",
+      "type": "concept",
+      "summary": "元认知蒸馏\n\n从AI对话日志中自动提取认知模式的技术。类比知识蒸馏：Teacher=对话记录，Student=认知画像JSON。分为观测式(被动)和提问式(主动)两种范式。\n时间跨度：2026-05-19 ~ 2026-06-11\n本轮检测: 5次学习信号, 跨度 2026-05-19 ~ 2026-06-11",
+      "backlink_count": 4,
+      "link_count": 4,
+      "file": "notes\\元认知蒸馏.md"
+    },
+    {
+      "id": "先查后建",
+      "label": "先查后建",
+      "type": "strategy",
+      "summary": "先查后建\n\n【元认知含义】在构建方案之前先检查是否已有现成方案——审慎务实而非闭门造车。但确认没有后不纠结，立即进入构建。\n\n【证据链】跨平台重现：DeepSeek中'搜索一下然后综合评估'(投简历工具)→CodeWhale中'网上有没有已经完成了的开源'(蒸馏系统)。两次都是先查→确认没有→立即自建。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\先查后建.md"
+    },
+    {
+      "id": "哲学思辨",
+      "label": "哲学思辨",
+      "type": "concept",
+      "summary": "哲学思辨\n\nDeepSeek导出扫描发现。包含 15 次学习信号, 时间跨度 2025-02-15 ~ 2026-06-11。",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\哲学思辨.md"
+    },
+    {
+      "id": "多工具生态构建",
+      "label": "多工具生态构建",
+      "type": "domain",
+      "summary": "多工具生态构建\n\n【元认知含义】不依赖单一工具，而是构建一个相互配合的工具生态系统。每个工具各司其职，通过编排层协同工作。\n\n【证据链】D4-D5扩展：DeepSeek(学习平台)+CodeWhale(构建平台)+mimo(被编排AI)+cloudcode(开发工具)+FreeLLMAPI(API代理)+less-tokens(优化工具)。六工具协同。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\多工具生态构建.md"
+    },
+    {
+      "id": "多模型切换",
+      "label": "多模型切换",
+      "type": "strategy",
+      "summary": "多模型切换\n\n【元认知含义】根据任务复杂度在deepseek-chat(快)和deepseek-reasoner(深)之间切换——理解不同模型的能力差异并加以利用。\n\n【证据链】chat用于日常学习(3398条)，reasoner用于深度推理(2123条)。模型选择反映任务分层：学习用轻量模型，设计用深度模型。",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\多模型切换.md"
+    },
+    {
+      "id": "学习→构建进化",
+      "label": "学习→构建进化",
+      "type": "meta",
+      "summary": "学习→构建进化\n\n【元认知含义】用户与AI的关系经历了从'学生'(学习基础)到'工程师'(解决具体问题)到'架构师'(设计系统)的进化。\n\n【证据链】早期(2025-02)：Python基础语法、C语言、电路原理→中期：RK3568驱动、RTT系统、AD7606代码审查→近期(2026-06)：元认知蒸馏系统、agent编排、自动化管道。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\学习→构建进化.md"
+    },
+    {
+      "id": "完整性需求",
+      "label": "完整性需求",
+      "type": "meta",
+      "summary": "完整性需求\n\n【元认知含义】对覆盖面的明确要求——不是'做一点就好'，而是'全量覆盖'。表现为要求蒸馏所有历史对话、要求DeepSeek全量导出。\n\n【证据链】'蒸馏所有历史对话'→DeepSeek官方全量导出589条对话→'其他历史对话蒸馏没有'→要求补全。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\完整性需求.md"
+    },
+    {
+      "id": "实时系统RTOS",
+      "label": "实时系统RTOS",
+      "type": "concept",
+      "summary": "实时系统RTOS\n\n实时操作系统概念。双RTOS：RTT(⁶³，国产，组件丰富)和FreeRTOS(²⁸，轻量级)。核心：任务调度、中断管理、IPC、内存管理。\n时间跨度：2025-07-14 ~ 2026-06-12\n本轮检测: 28次学习信号, 跨度 2026-03-30 ~ 2026-06-12",
+      "backlink_count": 3,
+      "link_count": 3,
+      "file": "notes\\实时系统RTOS.md"
+    },
+    {
+      "id": "嵌入式驱动开发",
+      "label": "嵌入式驱动开发",
+      "type": "skill",
+      "summary": "嵌入式驱动开发\n\n外设驱动综合技能：ADC/SPI/I2C/DMA/GPIO 全协议栈。在RTT框架下实现，涉及HAL层调用。20年经验，代码审查'只读不改'。\n时间跨度：2025-05-28 ~ 2026-06-12\n本轮检测: 25次学习信号, 跨度 2025-06-09 ~ 2026-06-05",
+      "backlink_count": 6,
+      "link_count": 6,
+      "file": "notes\\嵌入式驱动开发.md"
+    },
+    {
+      "id": "工具控制欲",
+      "label": "工具控制欲",
+      "type": "meta",
+      "summary": "工具控制欲\n\n【元认知含义】不满足于使用工具，追求对工具的完全控制——包括工具的行为、工具的配置、工具之间的编排。表现为不断扩展控制域：从控制自己使用的工具→控制AI的行为→控制AI编排其他AI。\n\n【证据链】D3升级(likely→certain)：要求打包EXE指定目录→要求嵌入agent→要求自动化定时→监控mimo做事→要求蒸馏所有历史对话。控制域从文件系统扩展到agent体系再扩展到跨A",
+      "backlink_count": 4,
+      "link_count": 4,
+      "file": "notes\\工具控制欲.md"
+    },
+    {
+      "id": "工具集成与自动化",
+      "label": "工具集成与自动化",
+      "type": "domain",
+      "summary": "工具集成与自动化\n\n【元认知含义】将离散工具整合为自动化系统的倾向。不同于'使用很多工具'(那是多工具生态)，这是追求工具间的自动编排和零人工干预。\n\n【证据链】从独立EXE→agent嵌入→automation定时任务→双自动化(meta+know)并行。工具从离散到集成的演化路径清晰可追踪。",
+      "backlink_count": 8,
+      "link_count": 8,
+      "file": "notes\\工具集成与自动化.md"
+    },
+    {
+      "id": "并行+收敛",
+      "label": "并行+收敛",
+      "type": "strategy",
+      "summary": "并行+收敛\n\n【元认知含义】同时考虑多个方案(并行探索)，但快速收敛到单一最优解。这是一种高效的决策策略——充分利用AI的并行能力，但不陷入选择瘫痪。\n\n【证据链】多轮并行搜索后迅速收敛到具体实现。典型表现：搜索多个工具→同时评估→选最优→立即实现。",
+      "backlink_count": 3,
+      "link_count": 3,
+      "file": "notes\\并行+收敛.md"
+    },
+    {
+      "id": "技术栈文档化",
+      "label": "技术栈文档化",
+      "type": "strategy",
+      "summary": "技术栈文档化\n\n【元认知含义】将调试经验和架构决策主动写入skill/文档——不是被动记录，而是主动将经验转化为可复用的知识资产。体现'记忆化思维'在工程层面的实践。\n\n【证据链】要求将debug经验和技术细节写入skill：'更新skill防止再生'→将Unicode处理管线、CJK字体栈配置、build_final_html架构写入skill文档。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\技术栈文档化.md"
+    },
+    {
+      "id": "技术深度优先",
+      "label": "技术深度优先",
+      "type": "domain",
+      "summary": "技术深度优先\n\n【元认知含义】在AI使用中，技术话题占据主导(39%)，尤其集中在嵌入式开发领域。AI主要用于技术学习和问题解决，而非闲聊或通用查询。\n\n【证据链】1049/2679条技术消息。具体领域：嵌入式(STM32+RK3568) > Python > 电路 > 算法 > 系统设计。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\技术深度优先.md"
+    },
+    {
+      "id": "抽象→具象快速切换",
+      "label": "抽象→具象快速切换",
+      "type": "strategy",
+      "summary": "抽象→具象快速切换\n\n【元认知含义】在抽象概念讨论和具体可执行方案之间快速切换的能力。表现为讨论概念后立即追问'怎么实现'，并将抽象思维策略外化为AI可执行的指令。\n\n【证据链】多次出现：'记忆化剪枝那样你懂吗'(抽象策略→AI指令)→讨论蒸馏概念后立即要求'打包成EXE放到D盘'→讨论agent体系后立即要求创建automation。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\抽象→具象快速切换.md"
+    },
+    {
+      "id": "持久化主线",
+      "label": "持久化主线",
+      "type": "meta",
+      "summary": "持久化主线\n\n【元认知含义】贯穿所有会话的深层需求——希望配置、知识、系统能够持久化而非一次性。这是'投入需要回报'的认知经济思维。\n\n【证据链】最强证据：16个月持续使用DeepSeek(589条对话)。Day1:'每次重启自动调用'→Day2:'整合到D盘'→Day3:'后台定时运行'。同一需求在三种场景下重复表达。",
+      "backlink_count": 5,
+      "link_count": 5,
+      "file": "notes\\持久化主线.md"
+    },
+    {
+      "id": "操作系统概念",
+      "label": "操作系统概念",
+      "type": "concept",
+      "summary": "操作系统概念\n\n操作系统核心概念：进程管理、线程调度、内存管理(虚拟内存/分页)、文件系统、IPC。在嵌入式Linux和RTOS的对比学习中反复出现。\n时间跨度：2025-08-02 ~ 2026-06-12",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\操作系统概念.md"
+    },
+    {
+      "id": "收敛型思维",
+      "label": "收敛型思维",
+      "type": "strategy",
+      "summary": "收敛型思维\n\n【元认知含义】倾向于从宽泛探索快速收敛到单一具体方案，而非长期保持发散探索。在认知效率上表现为'搜索→评估→决策→执行'的短链路。这既是优势（快速产出）也可能有盲区（过早收敛可能遗漏更优方案）。\n\n【证据链】D1-D5持续强化：GitHub工具列表→打包EXE→嵌入agent→蒸馏管线→全量导入DeepSeek数据，每一步都缩小范围。跨平台证据：DeepSeek 16个月学习弧线从P",
+      "backlink_count": 8,
+      "link_count": 8,
+      "file": "notes\\收敛型思维.md"
+    },
+    {
+      "id": "数据结构与算法",
+      "label": "数据结构与算法",
+      "type": "concept",
+      "summary": "数据结构与算法\n\n计算机科学基础：数组、链表、栈、队列、树、图、哈希表等数据结构，以及排序、搜索、动态规划等算法。在嵌入式开发中的实际应用包括环形缓冲区、状态机、查找表。\n时间跨度：2025-03-31 ~ 2026-06-12",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\数据结构与算法.md"
+    },
+    {
+      "id": "模型选择策略",
+      "label": "模型选择策略",
+      "type": "concept",
+      "summary": "模型选择策略\n\n根据任务选AI模型：deepseek-chat(快，日常学习)vs deepseek-reasoner(深，代码审查/系统设计)。判断标准：任务复杂度+需求深度。\n时间跨度：2026-05-22 ~ 2026-05-22",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\模型选择策略.md"
+    },
+    {
+      "id": "渐进式构建",
+      "label": "渐进式构建",
+      "type": "strategy",
+      "summary": "渐进式构建\n\n【元认知含义】不试图一次性完成所有工作，而是分阶段逐步构建——每阶段为下一阶段奠基。这是工程思维的体现。\n\n【证据链】D4-D5强化：DeepSeek 16个月(学习期)→CodeWhale(构建期)→元认知系统(升华期)。三天内从环境配置→工具链→蒸馏管线，每步自然递进。",
+      "backlink_count": 6,
+      "link_count": 6,
+      "file": "notes\\渐进式构建.md"
+    },
+    {
+      "id": "焦虑管理",
+      "label": "焦虑管理",
+      "type": "concept",
+      "summary": "焦虑管理\n\nDeepSeek导出扫描发现。包含 3 次学习信号, 时间跨度 2025-02-12 ~ 2026-06-11。",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\焦虑管理.md"
+    },
+    {
+      "id": "真实搜索偏好",
+      "label": "真实搜索偏好",
+      "type": "strategy",
+      "summary": "真实搜索偏好\n\n【元认知含义】对AI能力边界的清醒认知——区分AI的记忆(训练数据)和实时搜索。要求后者而非前者，表明用户理解LLM的工作方式。\n\n【证据链】'重新再搜索再评估，不是在你训练数据中的'——明确区分训练数据和实时搜索，对AI输出的来源有追问意识。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\真实搜索偏好.md"
+    },
+    {
+      "id": "睡眠健康",
+      "label": "睡眠健康",
+      "type": "concept",
+      "summary": "睡眠健康\n\nDeepSeek导出扫描发现。包含 3 次学习信号, 时间跨度 2025-02-12 ~ 2026-06-11。",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\睡眠健康.md"
+    },
+    {
+      "id": "硬盘检测",
+      "label": "硬盘检测",
+      "type": "tool",
+      "summary": "硬盘检测\n\n硬盘健康检测工具：SMART数据读取、磁盘性能测试。涉及硬盘状态监控和维护。\n时间跨度：2026-05-21 ~ 2026-06-11",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\硬盘检测.md"
+    },
+    {
+      "id": "系统性架构思维",
+      "label": "系统性架构思维",
+      "type": "strategy",
+      "summary": "系统性架构思维\n\n【元认知含义】不满足于点状解决方案，追求系统级的架构设计——考虑组件之间的关系、数据流、自动化管道。表现为从'工具'思维到'平台'思维的升级。\n\n【证据链】要求agent嵌入→设计蒸馏管线→双库并行→自动化定时运行。D14强化：项目从临时目录迁移到D:/ai项目/metacog-distiller固定路径，从零散脚本整合为完整系统(clean_garbled.py+update_",
+      "backlink_count": 5,
+      "link_count": 5,
+      "file": "notes\\系统性架构思维.md"
+    },
+    {
+      "id": "编码调试经验",
+      "label": "编码调试经验",
+      "type": "skill",
+      "summary": "编码调试经验\n\n【本质】系统性的编码问题排查和修复技能——从Unicode控制字符过滤到CJK字体栈配置到HTML innerHTML安全清洗的全链路知识。\n【关键参数】问题域: JSON编码、HTML渲染、SVG字体、DOM安全；关键技术: safe_str()过滤、字体栈PingFang SC+Microsoft YaHei、word-break防溢出。\n【项目关联】本次调试会话的核心产出——",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\编码调试经验.md"
+    },
+    {
+      "id": "编码质量意识",
+      "label": "编码质量意识",
+      "type": "tool_use",
+      "summary": "编码质量意识\n\n【元认知含义】对输出质量的系统关注——不只是'能用就行'，而是追求零乱码、正确渲染、跨平台兼容。发现编码问题后逐层debug而非接受workaround。\n\n【证据链】乱码问题反复追问：'html还是看不了！'→要求逐层debug→更新skill防止再生。从Unicode控制字符过滤到CJK字体栈到innerHTML安全清洗，全链路质量保障。",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\编码质量意识.md"
+    },
+    {
+      "id": "编码问题",
+      "label": "编码问题",
+      "type": "concept",
+      "summary": "编码问题\n\n字符编码技术：UTF-8/GBK/Unicode转换、乱码定位与修复、BOM头处理。在Python脚本开发和HTML生成中反复遇到。clean_garbled.py为专门解决此问题的工具。\n时间跨度：2025-04-02 ~ 2026-06-12",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\编码问题.md"
+    },
+    {
+      "id": "网络协议",
+      "label": "网络协议",
+      "type": "concept",
+      "summary": "网络协议\n\nTCP/IP协议栈、HTTP/HTTPS、MQTT(IoT协议)、Socket编程。在嵌入式Linux网络应用、CodeWhale API调用、自动化部署中均有涉及。\n时间跨度：2025-03-31 ~ 2026-06-12",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\网络协议.md"
+    },
+    {
+      "id": "自动化依赖",
+      "label": "自动化依赖",
+      "type": "meta",
+      "summary": "自动化依赖\n\n【元认知含义】将自动化视为基础设施而非可选功能——要求一切重复操作写入automation/skill，拒绝手动触发。这是set-and-forget偏好的强化版。\n\n【证据链】'更新HTML变成自动化流程'——要求将HTML生成纳入automation。乱码修复后要求'更新skill防止再生'。系统性地将每次手动操作转化为自动化规则。",
+      "backlink_count": 3,
+      "link_count": 3,
+      "file": "notes\\自动化依赖.md"
+    },
+    {
+      "id": "自动化蒸馏管道",
+      "label": "自动化蒸馏管道",
+      "type": "insight",
+      "summary": "自动化蒸馏管道\n\n【本质】将元认知/知识/学习三维蒸馏自动化的全链路管道——从日志读取到图谱更新到HTML生成，全部由automation定时触发。\n【关键参数】周期: 每4小时；组件: observation_log.md→metacog_graph.json→metacognition-mapper.html + knowledge_log.md→knowledge_graph.json→kn",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\自动化蒸馏管道.md"
+    },
+    {
+      "id": "角色边界意识",
+      "label": "角色边界意识",
+      "type": "meta",
+      "summary": "角色边界意识\n\n【元认知含义】在与AI交互时明确设定角色和权限边界——不是模糊的'帮我做'，而是精细的'在这个角色下、用这个权限、做这件事'。\n\n【证据链】'只读不改，你只有总结的权力'→'入行嵌入式开发20年的老手'→'你删给你权限'。边界设定从严格(只读)→宽松(可删除)，在不同场景下精确调整。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\角色边界意识.md"
+    },
+    {
+      "id": "认知偏差体系",
+      "label": "认知偏差体系",
+      "type": "concept",
+      "summary": "认知偏差体系\n\n200+认知偏差知识库：确认偏误、锚定效应、规划谬误、后见之明、自利偏差、达克效应、沉没成本、现状偏误、框架效应等。用于元认知对照分析。",
+      "backlink_count": 1,
+      "link_count": 1,
+      "file": "notes\\认知偏差体系.md"
+    },
+    {
+      "id": "记忆化思维",
+      "label": "记忆化思维",
+      "type": "strategy",
+      "summary": "记忆化思维\n\n【元认知含义】将认知效率策略外化为AI指令——用户有自己的'认知缓存'概念，并主动要求AI实现类似机制。\n\n【证据链】'之前出现过就不需要再出现了，记忆化剪枝那样你懂吗'——这是一个高度抽象的认知策略，用户不仅自己使用，还将其传授给AI。",
+      "backlink_count": 3,
+      "link_count": 3,
+      "file": "notes\\记忆化思维.md"
+    },
+    {
+      "id": "量化交易",
+      "label": "量化交易",
+      "type": "concept",
+      "summary": "量化交易\n\nDeepSeek导出扫描发现。包含 21 次学习信号, 时间跨度 2025-02-09 ~ 2026-06-11。",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\量化交易.md"
+    },
+    {
+      "id": "量化交易与回测",
+      "label": "量化交易与回测",
+      "type": "concept",
+      "summary": "量化交易与回测\n\n金融量化交易概念：马丁格尔策略回测、本地部署回测框架。早期探索（2025-02-09 ~ 2025-02-15），提问4次后未继续深入。涉及Python量化编程基础。\n时间跨度：2025-02-09 ~ 2026-06-11",
+      "backlink_count": 4,
+      "link_count": 4,
+      "file": "notes\\量化交易与回测.md"
+    },
+    {
+      "id": "量化回测",
+      "label": "量化回测",
+      "type": "concept",
+      "summary": "量化回测\n\n量化交易策略回测技术：马丁格尔策略、数学期望计算、Python回测框架(backtrader/zipline)。从2025年2月首次提出，持续探索量化编程。\n时间跨度：2025-02-09 ~ 2026-06-11",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\量化回测.md"
+    },
+    {
+      "id": "长期AI依赖",
+      "label": "长期AI依赖",
+      "type": "meta",
+      "summary": "长期AI依赖\n\n【元认知含义】AI已深度嵌入用户的工作流和思维过程——16个月的使用不是偶尔尝试，而是形成了稳定的AI增强认知模式。\n\n【证据链】DeepSeek: 2025-02-09至今，589条对话，2679条消息(chat 3398 / reasoner 2123)。CodeWhale: 2026-06-11至今，多次session持续构建。AI使用已从工具升级为外脑。",
+      "backlink_count": 3,
+      "link_count": 3,
+      "file": "notes\\长期AI依赖.md"
+    },
+    {
+      "id": "项目持久化迁移",
+      "label": "项目持久化迁移",
+      "type": "insight",
+      "summary": "项目持久化迁移\n\n【本质】将AI辅助开发项目从临时/混乱路径迁移到固定、有结构的持久化目录的工程实践。\n【关键参数】迁移路径: C盘临时workspace→D:/github/RK3568...→D:/ai项目/metacog-distiller；关键原则: 统一目录、文件分类(log/json/py/html)、路径可预测。\n【项目关联】整个metacog-system的基础设施决策——从散落文",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\项目持久化迁移.md"
+    },
+    {
+      "id": "项目结构优化迭代",
+      "label": "项目结构优化迭代",
+      "type": "strategy",
+      "summary": "项目结构优化迭代\n\n【元认知含义】持续优化项目目录结构和文件组织——不只是初始设置，而是迭代性地改进。表现为从临时目录迁移到固定D盘路径，从单文件到多模块结构。\n\n【证据链】workspace迁移: C盘临时→D:/github/RK...→D:/ai项目/metacog-distiller。要求reorganize/clean/optimize项目结构多次。",
+      "backlink_count": 2,
+      "link_count": 2,
+      "file": "notes\\项目结构优化迭代.md"
+    },
+    {
+      "id": "验证习惯",
+      "label": "验证习惯",
+      "type": "strategy",
+      "summary": "验证习惯\n\n【元认知含义】对AI输出的系统性验证行为——不只是信任输出，而是要求可重复、可检查的证据。体现在每次操作后都要求确认结果。\n\n【证据链】跨平台持续出现：DeepSeek中'重新再搜索再评估，不是在你训练数据中的'→CodeWhale中每次文件操作后要求验证(端口测试、API响应检查、文件完整性确认)。在构建蒸馏管线时每个步骤都要求验证。",
+      "backlink_count": 5,
+      "link_count": 5,
+      "file": "notes\\验证习惯.md"
+    },
+    {
+      "id": "高自主性需求",
+      "label": "高自主性需求",
+      "type": "meta",
+      "summary": "高自主性需求\n\n【元认知含义】强烈偏好系统自动工作而非需要用户持续参与。这超越了普通的'方便'需求，表现为一种元层级的控制偏好：不仅控制自己在做什么，还要控制AI在做什么、AI如何编排其他AI。\n\n【证据链】连续³拒绝提问式挖掘方案，选择观测式('不用自己整理')→要求后台定时蒸馏('后台挂一个')→要求嵌入agent('嵌入到相关agent')→'帮我看着mimo做事'——从控制自己到控制AI到",
+      "backlink_count": 5,
+      "link_count": 5,
+      "file": "notes\\高自主性需求.md"
+    },
+    {
+      "id": "🤔 ADC疑问",
+      "label": "🤔 ADC疑问",
+      "type": "question",
+      "summary": "🤔 ADC疑问\n\n在DeepSeek对话中被提问11次。时间跨度：2026-05-11 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\🤔 ADC疑问.md"
+    },
+    {
+      "id": "🤔 AI原理疑问",
+      "label": "🤔 AI原理疑问",
+      "type": "question",
+      "summary": "🤔 AI原理疑问\n\n在DeepSeek对话中被提问8次。时间跨度：2025-02-15。连续追问'你是通过什么原理和语言生成的'——对AI底层实现原理的集中好奇。",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 AI原理疑问.md"
+    },
+    {
+      "id": "🤔 C语言疑问",
+      "label": "🤔 C语言疑问",
+      "type": "question",
+      "summary": "🤔 C语言疑问\n\n在DeepSeek对话中被提问23次。时间跨度：2025-03-31 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\🤔 C语言疑问.md"
+    },
+    {
+      "id": "🤔 DMA疑问",
+      "label": "🤔 DMA疑问",
+      "type": "question",
+      "summary": "🤔 DMA疑问\n\n在DeepSeek对话中被提问20次。时间跨度：2025-08-01 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 DMA疑问.md"
+    },
+    {
+      "id": "🤔 FreeRTOS疑问",
+      "label": "🤔 FreeRTOS疑问",
+      "type": "question",
+      "summary": "🤔 FreeRTOS疑问\n\n在DeepSeek对话中被提问8次。时间跨度：2025-07-31 ~ 2026-05-22。最近提问：\"套接字本源与系统编程对照\n核心学习目标\n我想彻底理解套接字的底层本质，不只是会用 API，而是搞清楚它和 Linux 驱动、文件系统、内存管理、C++ 设计模式之间的关系。\n一、套接字的本源模式（三重\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 FreeRTOS疑问.md"
+    },
+    {
+      "id": "🤔 GPIO疑问",
+      "label": "🤔 GPIO疑问",
+      "type": "question",
+      "summary": "🤔 GPIO疑问\n\n在DeepSeek对话中被提问19次。时间跨度：2025-09-16 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 GPIO疑问.md"
+    },
+    {
+      "id": "🤔 I2C疑问",
+      "label": "🤔 I2C疑问",
+      "type": "question",
+      "summary": "🤔 I2C疑问\n\n在DeepSeek对话中被提问21次。时间跨度：2025-11-03 ~ 2026-06-05。最近提问：\"请按照以下提示直接输出.c文件好的，我来帮你分析。首先我需要完整阅读 SD3078 的驱动代码，了解它的结构，然后对照你提供的技术要点，告诉你移植到 SD2506 需要改哪些地方。\n\n让我先读完整个驱\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 I2C疑问.md"
+    },
+    {
+      "id": "🤔 Python疑问",
+      "label": "🤔 Python疑问",
+      "type": "question",
+      "summary": "🤔 Python疑问\n\n在DeepSeek对话中被提问21次。时间跨度：2025-05-28 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 Python疑问.md"
+    },
+    {
+      "id": "🤔 RK3568疑问",
+      "label": "🤔 RK3568疑问",
+      "type": "question",
+      "summary": "🤔 RK3568疑问\n\n在DeepSeek对话中被提问11次。时间跨度：2026-05-22 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 RK3568疑问.md"
+    },
+    {
+      "id": "🤔 RTT疑问",
+      "label": "🤔 RTT疑问",
+      "type": "question",
+      "summary": "🤔 RTT疑问\n\n在DeepSeek对话中被提问22次。时间跨度：2026-04-07 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 RTT疑问.md"
+    },
+    {
+      "id": "🤔 SPI疑问",
+      "label": "🤔 SPI疑问",
+      "type": "question",
+      "summary": "🤔 SPI疑问\n\n在DeepSeek对话中被提问31次。时间跨度：2025-11-03 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 SPI疑问.md"
+    },
+    {
+      "id": "🤔 STM32疑问",
+      "label": "🤔 STM32疑问",
+      "type": "question",
+      "summary": "🤔 STM32疑问\n\n在DeepSeek对话中被提问17次。时间跨度：2025-03-15 ~ 2026-06-11。最近提问：\"等会儿，你帮我梳理一下RK3568框架下的DMA，是和STM32里面一样的机制吗\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 STM32疑问.md"
+    },
+    {
+      "id": "🤔 中断疑问",
+      "label": "🤔 中断疑问",
+      "type": "question",
+      "summary": "🤔 中断疑问\n\n在DeepSeek对话中被提问21次。时间跨度：2025-08-01 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 中断疑问.md"
+    },
+    {
+      "id": "🤔 串口疑问",
+      "label": "🤔 串口疑问",
+      "type": "question",
+      "summary": "🤔 串口疑问\n\n在DeepSeek对话中被提问12次。时间跨度：2025-07-31 ~ 2026-05-25。最近提问：\"这个是另外两个对话总结输出的东西，重新规划一下根据我们之前的对话，您主要围绕 RT-Thread（RTT）、RK3568 驱动、PCIe、QEMU 以及 RT-Smart 等技术点进行了探讨，并提出了\"",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\🤔 串口疑问.md"
+    },
+    {
+      "id": "🤔 定时器疑问",
+      "label": "🤔 定时器疑问",
+      "type": "question",
+      "summary": "🤔 定时器疑问\n\n在DeepSeek对话中被提问22次。时间跨度：2025-07-31 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\🤔 定时器疑问.md"
+    },
+    {
+      "id": "🤔 嵌入式Linux疑问",
+      "label": "🤔 嵌入式Linux疑问",
+      "type": "question",
+      "summary": "🤔 嵌入式Linux疑问\n\n在DeepSeek对话中被提问34次。时间跨度：2025-07-04 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\🤔 嵌入式Linux疑问.md"
+    },
+    {
+      "id": "🤔 操作系统疑问",
+      "label": "🤔 操作系统疑问",
+      "type": "question",
+      "summary": "🤔 操作系统疑问\n\n在DeepSeek对话中被提问12次。时间跨度：2025-07-31 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\🤔 操作系统疑问.md"
+    },
+    {
+      "id": "🤔 电路疑问",
+      "label": "🤔 电路疑问",
+      "type": "question",
+      "summary": "🤔 电路疑问\n\n在DeepSeek对话中被提问14次。时间跨度：2026-03-17 ~ 2026-06-05。最近提问：\"请按照以下提示直接输出.c文件好的，我来帮你分析。首先我需要完整阅读 SD3078 的驱动代码，了解它的结构，然后对照你提供的技术要点，告诉你移植到 SD2506 需要改哪些地方。\n\n让我先读完整个驱\"",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\🤔 电路疑问.md"
+    },
+    {
+      "id": "🤔 算法疑问",
+      "label": "🤔 算法疑问",
+      "type": "question",
+      "summary": "🤔 算法疑问\n\n在DeepSeek对话中被提问16次。时间跨度：2025-12-01 ~ 2026-06-12。最近提问：\"================================================================================\n  RK3568 AD7606 SPI\"",
+      "backlink_count": 0,
+      "link_count": 0,
+      "file": "notes\\🤔 算法疑问.md"
+    },
+    {
+      "id": "🤔 量化疑问",
+      "label": "🤔 量化疑问",
+      "type": "question",
+      "summary": "🤔 量化疑问\n\n在DeepSeek对话中被提问4次。时间跨度：2025-02-09 ~ 2025-02-15。内容涉及马丁格尔策略回测、本地部署量化框架、Python量化编程。",
+      "backlink_count": 0,
+      "link_count": 1,
+      "file": "notes\\🤔 量化疑问.md"
+    }
+  ],
+  "edges": [
+    {
+      "source": "AD_AD7606特性",
+      "target": "AD模数转换",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "AD_AD7606特性",
+      "target": "AD_采样参数",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "AD_采样参数",
+      "target": "AD模数转换",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "AD模数转换",
+      "target": "嵌入式驱动开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "AD模数转换",
+      "target": "DMA直接存储器访问",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "Agent体系",
+      "target": "CodeWhale",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "Agent体系",
+      "target": "mimo",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "AI_LLM原理",
+      "target": "DeepSeek平台",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "AI_LLM原理",
+      "target": "🤔_AI原理疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "AI编排能力",
+      "target": "工具控制欲",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "AI编排能力",
+      "target": "高自主性需求",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "C_C++编程",
+      "target": "嵌入式驱动开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "C_C++编程",
+      "target": "STM32嵌入式开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "clean_garbled.py",
+      "target": "Python编程",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "clean_garbled.py",
+      "target": "编码调试经验",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "CodeWhale",
+      "target": "RK3568+RTT嵌入式项目",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "CodeWhale",
+      "target": "元认知蒸馏",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "CodeWhale",
+      "target": "less-tokens",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "CodeWhale",
+      "target": "FreeLLMAPI",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "CodeWhale",
+      "target": "Git版本控制",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "D3.js力导向图",
+      "target": "元认知蒸馏",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "D3.js力导向图",
+      "target": "Obsidian知识管理",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "D3.js力导向图",
+      "target": "编码调试经验",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "DeepSeek平台",
+      "target": "RK3568+RTT嵌入式项目",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "DeepSeek平台",
+      "target": "STM32嵌入式开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "DeepSeek平台",
+      "target": "模型选择策略",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "DMA_传输模式",
+      "target": "DMA传输",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "DMA传输",
+      "target": "嵌入式驱动开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "DMA传输",
+      "target": "🤔_DMA疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "DMA直接存储器访问",
+      "target": "SPI通信协议",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "FreeRTOS",
+      "target": "实时系统RTOS",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "FreeRTOS",
+      "target": "FreeRTOS_任务管理",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "FreeRTOS",
+      "target": "FreeRTOS_IPC机制",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "FreeRTOS",
+      "target": "🤔_FreeRTOS疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "FreeRTOS_IPC机制",
+      "target": "FreeRTOS_任务管理",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "GPIO_中断系统",
+      "target": "GPIO编程",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "GPIO_中断系统",
+      "target": "🤔_中断疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "GPIO_输出配置",
+      "target": "GPIO编程",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "GPIO编程",
+      "target": "嵌入式驱动开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "GPIO编程",
+      "target": "🤔_GPIO疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "I2C_电气与寻址",
+      "target": "I2C通信协议",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "I2C_速率模式",
+      "target": "I2C通信协议",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "I2C通信协议",
+      "target": "SPI通信协议",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "I2C通信协议",
+      "target": "🤔_I2C疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "Linux嵌入式",
+      "target": "STM32嵌入式开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "NVIC中断控制器",
+      "target": "STM32嵌入式开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "PyInstaller打包",
+      "target": "元认知蒸馏",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "PyInstaller打包",
+      "target": "Python编程",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "Python编程",
+      "target": "量化回测",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "Python编程",
+      "target": "自动化蒸馏管道",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "Python编程",
+      "target": "🤔_Python疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "Python编程",
+      "target": "量化交易与回测",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "Python编程",
+      "target": "Python量化编程",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "Python量化编程",
+      "target": "量化交易与回测",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "RK3568+RTT嵌入式项目",
+      "target": "实时系统RTOS",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "RK3568+RTT嵌入式项目",
+      "target": "嵌入式驱动开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "RK3568+RTT嵌入式项目",
+      "target": "RK3568_芯片架构",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "RK3568+RTT嵌入式项目",
+      "target": "项目持久化迁移",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "RK3568+RTT嵌入式项目",
+      "target": "🤔_RTT疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "RK3568+RTT嵌入式项目",
+      "target": "🤔_RK3568疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "RK3568+RTT嵌入式项目",
+      "target": "Timer定时器",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "RTT_内核机制",
+      "target": "实时系统RTOS",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "Set-and-forget 偏好",
+      "target": "高自主性需求",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "Set-and-forget 偏好",
+      "target": "工具控制欲",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "Set-and-forget 偏好",
+      "target": "持久化主线",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "Set-and-forget 偏好",
+      "target": "自动化依赖",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "SPI_时钟极性与相位",
+      "target": "SPI通信协议",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "SPI_时钟极性与相位",
+      "target": "SPI_片选与主从架构",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "SPI_片选与主从架构",
+      "target": "SPI通信协议",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "SPI通信协议",
+      "target": "嵌入式驱动开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "SPI通信协议",
+      "target": "🤔_SPI疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "STM32_HAL库与CubeMX",
+      "target": "STM32嵌入式开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "STM32_HAL库与CubeMX",
+      "target": "STM32_外设体系",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "STM32_外设体系",
+      "target": "STM32嵌入式开发",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "STM32嵌入式开发",
+      "target": "🤔_STM32疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "STM32嵌入式开发",
+      "target": "Timer定时器",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "STM32嵌入式开发",
+      "target": "USART_UART",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "主动蒸馏意识",
+      "target": "元认知可视化探索",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "主动蒸馏意识",
+      "target": "系统性架构思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "元认知可视化探索",
+      "target": "收敛型思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "元认知蒸馏",
+      "target": "认知偏差体系",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "先查后建",
+      "target": "收敛型思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "先查后建",
+      "target": "真实搜索偏好",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "多工具生态构建",
+      "target": "工具集成与自动化",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "多工具生态构建",
+      "target": "渐进式构建",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "多模型切换",
+      "target": "并行+收敛",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "学习→构建进化",
+      "target": "渐进式构建",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "学习→构建进化",
+      "target": "技术深度优先",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "完整性需求",
+      "target": "工具集成与自动化",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "完整性需求",
+      "target": "验证习惯",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "工具控制欲",
+      "target": "高自主性需求",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "工具控制欲",
+      "target": "Set-and-forget_偏好",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "工具控制欲",
+      "target": "角色边界意识",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "工具集成与自动化",
+      "target": "高自主性需求",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "工具集成与自动化",
+      "target": "收敛型思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "工具集成与自动化",
+      "target": "验证习惯",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "工具集成与自动化",
+      "target": "并行+收敛",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "工具集成与自动化",
+      "target": "系统性架构思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "工具集成与自动化",
+      "target": "渐进式构建",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "并行+收敛",
+      "target": "收敛型思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "技术栈文档化",
+      "target": "系统性架构思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "技术栈文档化",
+      "target": "记忆化思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "技术深度优先",
+      "target": "长期AI依赖",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "抽象→具象快速切换",
+      "target": "收敛型思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "抽象→具象快速切换",
+      "target": "记忆化思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "持久化主线",
+      "target": "渐进式构建",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "持久化主线",
+      "target": "Set-and-forget_偏好",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "持久化主线",
+      "target": "长期AI依赖",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "持久化主线",
+      "target": "项目结构优化迭代",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "持久化主线",
+      "target": "自动化依赖",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "收敛型思维",
+      "target": "系统性架构思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "收敛型思维",
+      "target": "渐进式构建",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "收敛型思维",
+      "target": "记忆化思维",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "渐进式构建",
+      "target": "长期AI依赖",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "真实搜索偏好",
+      "target": "验证习惯",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "系统性架构思维",
+      "target": "项目结构优化迭代",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "编码质量意识",
+      "target": "验证习惯",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "自动化依赖",
+      "target": "Set-and-forget_偏好",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "自动化依赖",
+      "target": "高自主性需求",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "自动化蒸馏管道",
+      "target": "项目持久化迁移",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "角色边界意识",
+      "target": "验证习惯",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "量化交易与回测",
+      "target": "量化回测",
+      "type": "links_to",
+      "label": "双向链接"
+    },
+    {
+      "source": "量化交易与回测",
+      "target": "🤔_量化疑问",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "高自主性需求",
+      "target": "Set-and-forget_偏好",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 AI原理疑问",
+      "target": "AI_LLM原理",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 DMA疑问",
+      "target": "DMA传输",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 FreeRTOS疑问",
+      "target": "FreeRTOS",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 GPIO疑问",
+      "target": "GPIO编程",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 I2C疑问",
+      "target": "I2C通信协议",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 Python疑问",
+      "target": "Python编程",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 RK3568疑问",
+      "target": "RK3568+RTT嵌入式项目",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 RTT疑问",
+      "target": "RK3568+RTT嵌入式项目",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 SPI疑问",
+      "target": "SPI通信协议",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 STM32疑问",
+      "target": "STM32嵌入式开发",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 中断疑问",
+      "target": "GPIO_中断系统",
+      "type": "links_to",
+      "label": "单向链接"
+    },
+    {
+      "source": "🤔 量化疑问",
+      "target": "量化交易与回测",
+      "type": "links_to",
+      "label": "单向链接"
+    }
+  ]
+}

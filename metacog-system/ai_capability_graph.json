@@ -1,0 +1,187 @@
+{
+  "user_id": "mu",
+  "created": "2026-06-18T10:00:00",
+  "type": "ai_capability",
+  "total_nodes": 11,
+  "total_edges": 16,
+  "nodes": [
+    {
+      "id": "a1",
+      "label": "CodeWhale",
+      "type": "tool",
+      "depth": 0,
+      "confidence": "certain",
+      "summary": "本地AI编程助手，支持agent/skill/automation三层体系。agent_open创建子agent并行工作，skill装载领域知识，automation_create创建定时任务。",
+      "wiki_description": "CodeWhale is a local AI programming assistant developed by DeepSeek, featuring an agent/skill/automation architecture. It supports sub-agent spawning, parallel task execution, and scheduled automation workflows.",
+      "baidu_description": "CodeWhale 是 DeepSeek 开发的本地 AI 编程助手，支持 agent/skill/automation 三层架构，可创建子 agent 并行工作、加载 skill 领域知识、创建定时 automation 任务。"
+    },
+    {
+      "id": "a2",
+      "label": "元认知蒸馏",
+      "type": "concept",
+      "depth": 1,
+      "confidence": "certain",
+      "summary": "从AI对话日志中自动提取认知模式的技术。类比知识蒸馏：Teacher=对话记录，Student=认知画像JSON。分为观测式(被动)和提问式(主动)两种范式。",
+      "wiki_description": "Metacognition distillation is a technique that extracts cognitive patterns from AI conversation logs, analogous to knowledge distillation in machine learning. It maps behavioral traces to structured cognitive profiles.",
+      "baidu_description": "元认知蒸馏是从 AI 对话日志中自动提取用户认知模式的技术，类比机器学习中的知识蒸馏。分为观测式（被动分析）和提问式（主动访谈）两种范式。"
+    },
+    {
+      "id": "a4",
+      "label": "Agent体系",
+      "type": "concept",
+      "depth": 1,
+      "confidence": "certain",
+      "summary": "CodeWhale多agent架构：主agent协调，子agent并行执行。fork_context共享上下文实现prefix-cache复用。automation支持定时触发。",
+      "wiki_description": "The Agent architecture in CodeWhale enables multi-agent coordination where a main agent orchestrates sub-agents for parallel task execution. Forked contexts allow prefix-cache sharing between parent and child agents.",
+      "baidu_description": "Agent 体系是 CodeWhale 的多智能体架构：主 agent 协调调度，子 agent 通过 agent_open 并行执行。支持 fork_context 共享上下文实现 prefix-cache 复用，automation_create 可创建定时任务。"
+    },
+    {
+      "id": "a5",
+      "label": "less-tokens",
+      "type": "tool",
+      "depth": 1,
+      "confidence": "certain",
+      "summary": "Python词法压缩库(PyPI v0.5.1)，确定性无训练压缩，减少30-40% token。API：compress()和smart_compress()。MIT许可证，作者Shamin Chokshi。",
+      "wiki_description": "less-tokens is a deterministic, training-free lexical compression library for LLM prompts, reducing token usage by 30-40%. It removes filler phrases, stopwords, and applies contractions while preserving code blocks and URLs.",
+      "baidu_description": "less-tokens 是一个确定性的、无需训练的词法压缩 Python 库，通过移除填充短语、停用词、应用缩写等方式为 LLM 提示减少 30-40% 的 token 使用量，同时自动保护代码块和 URL。"
+    },
+    {
+      "id": "a6",
+      "label": "FreeLLMAPI",
+      "type": "tool",
+      "depth": 1,
+      "confidence": "likely",
+      "summary": "本地LLM API代理(localhost:3001)，/v1/chat/completions端点。缓存响应、健康检查(300s)、catalog同步(12h)。数据库：D:\\freellmapi\\server\\data\\freeapi.db。",
+      "wiki_description": "FreeLLMAPI is a local LLM API proxy service that caches and forwards API requests. It runs on localhost:3001 and provides a /v1/chat/completions endpoint, with periodic catalog synchronization from api.freellmapi.co.",
+      "baidu_description": "FreeLLMAPI 是一个本地 LLM API 代理服务，运行在 localhost:3001，提供 /v1/chat/completions 端点。功能包括 API 响应缓存、请求转发、健康检查和定期 catalog 同步。"
+    },
+    {
+      "id": "a7",
+      "label": "mimo",
+      "type": "tool",
+      "depth": 1,
+      "confidence": "likely",
+      "summary": "被CodeWhale编排的AI工具。使用模式：'帮我看着mimo做事，不会了就输入指令继续'——AI监督AI的嵌套代理。",
+      "wiki_description": "Mimo is an AI tool that the user orchestrates through CodeWhale, using a nested agent pattern where CodeWhale monitors and controls Mimo. This represents an \"AI supervising AI\" workflow.",
+      "baidu_description": "mimo 是用户通过 CodeWhale 编排的另一个 AI 工具。使用模式为 CodeWhale 监控 mimo 的操作并在需要时输入指令，体现 AI 监督 AI 的嵌套代理模式。"
+    },
+    {
+      "id": "a21",
+      "label": "DeepSeek平台",
+      "type": "tool",
+      "depth": 0,
+      "confidence": "certain",
+      "summary": "云端AI平台(chat.deepseek.com)。16个月使用，589条对话，2679条消息。双模型：deepseek-chat(3398条)+deepseek-reasoner(2123条)。",
+      "wiki_description": "DeepSeek is a Chinese AI company developing large language models including deepseek-chat (general-purpose) and deepseek-reasoner (enhanced reasoning). It offers a web chat interface at chat.deepseek.com with conversation export functionality using a mapping-based format compatible with ChatGPT exports.",
+      "baidu_description": ""
+    },
+    {
+      "id": "a24",
+      "label": "模型选择策略",
+      "type": "concept",
+      "depth": 1,
+      "confidence": "likely",
+      "summary": "根据任务选AI模型：deepseek-chat(快，日常学习)vs deepseek-reasoner(深，代码审查/系统设计)。判断标准：任务复杂度+需求深度。",
+      "wiki_description": "Model selection strategy involves choosing the appropriate AI model for different tasks. DeepSeek offers deepseek-chat (fast, general dialogue) and deepseek-reasoner (deep reasoning), selected based on task complexity.",
+      "baidu_description": "模型选择策略指根据任务类型选择合适的 AI 模型。DeepSeek 提供 deepseek-chat（快速通用对话）和 deepseek-reasoner（深度推理）双模型，根据任务复杂度切换使用。"
+    },
+    {
+      "id": "a3",
+      "label": "D3.js力导向图",
+      "type": "tool",
+      "depth": 1,
+      "confidence": "certain",
+      "summary": "JavaScript数据可视化库(d3.v7)，用于渲染知识/认知图谱。力导向布局，节点按类型着色，支持拖拽缩放点击详情。",
+      "wiki_description": "D3.js is a JavaScript library for producing dynamic, interactive data visualizations in web browsers. It uses SVG, HTML5, and CSS standards. Force-directed graphs are one of its most popular applications.",
+      "baidu_description": "D3.js 是由 Mike Bostock 开发的 JavaScript 数据可视化库，使用 SVG/HTML5/CSS 标准渲染。力导向图是其最常见的应用之一，版本 v7 为最新稳定版。"
+    },
+    {
+      "id": "a_new_1",
+      "label": "AI 编排管道",
+      "type": "concept",
+      "depth": 1,
+      "confidence": "certain",
+      "summary": "CodeWhale agent + skill + automation 三层架构构成完整的 AI 编排管道：agent_open 创建子 agent 并行工作，skill 装载领域知识，automation_create 创建定时任务。实现 AI 监督 AI 的嵌套代理模式。",
+      "wiki_description": "",
+      "baidu_description": ""
+    },
+    {
+      "id": "a_new_2",
+      "label": "元认知蒸馏管道",
+      "type": "concept",
+      "depth": 1,
+      "confidence": "certain",
+      "summary": "5阶段自动化蒸馏：读日志→提取信号→更新图谱→联网补充→生成HTML。通过 CodeWhale automation 每4小时触发，实现从原始对话到可视化图谱的全自动管道。",
+      "wiki_description": "",
+      "baidu_description": ""
+    }
+  ],
+  "edges": [
+    {
+      "source": "a2",
+      "target": "a1",
+      "type": "used_in",
+      "label": "在CodeWhale中实现蒸馏"
+    },
+    {
+      "source": "a3",
+      "target": "a2",
+      "type": "used_in",
+      "label": "用于认知图谱可视化"
+    },
+    {
+      "source": "a4",
+      "target": "a1",
+      "type": "part_of",
+      "label": "CodeWhale核心机制"
+    },
+    {
+      "source": "a5",
+      "target": "a1",
+      "type": "used_in",
+      "label": "CodeWhale中配置压缩"
+    },
+    {
+      "source": "a6",
+      "target": "a1",
+      "type": "relates_to",
+      "label": "API代理配合CodeWhale"
+    },
+    {
+      "source": "a7",
+      "target": "a4",
+      "type": "example_of",
+      "label": "被编排的子agent"
+    },
+    {
+      "source": "a24",
+      "target": "a21",
+      "type": "part_of",
+      "label": "模型选择属于平台使用策略"
+    },
+    {
+      "source": "a_new_1",
+      "target": "a1",
+      "type": "part_of",
+      "label": "CodeWhale实现"
+    },
+    {
+      "source": "a_new_1",
+      "target": "a4",
+      "type": "part_of",
+      "label": "Agent体系支撑"
+    },
+    {
+      "source": "a_new_2",
+      "target": "a2",
+      "type": "part_of",
+      "label": "蒸馏实现"
+    },
+    {
+      "source": "a_new_2",
+      "target": "a_new_1",
+      "type": "depends_on",
+      "label": "蒸馏依赖编排管道"
+    }
+  ]
+}

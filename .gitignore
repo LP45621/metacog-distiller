@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.spec
+*.exe
+
+# Data (user's personal data — excluded by default)
+data/*.json
+data/*.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log backups
+metacog-system/*.bak
+
+# Large binaries
+metacog-analyzer.exe
+
+# Reasonix
+.reasonix/
