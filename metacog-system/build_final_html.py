@@ -90,12 +90,9 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHe
 .nav-bar a{{color:#8b949e;text-decoration:none}}
 .nav-bar a:hover{{color:#f0f6fc}}
 .nav-bar .sep{{color:#30363d}}
-.node.dim{{opacity:0.15;pointer-events:none}}
-.node.dim text{{opacity:0.3}}
-.node.linked{{opacity:1}}
-.node.linked circle{{stroke:#f0f6fc;stroke-width:2.5px}}
-.edge.dim{{opacity:0.04;pointer-events:none}}
-.edge.linked{{opacity:0.7}}
+.node.linked circle{{stroke:#f0f6fc;stroke-width:3px;filter:drop-shadow(0 0 6px rgba(240,246,252,0.5))}}
+.node.linked text{{font-weight:bold;fill:#f0f6fc}}
+.edge.linked{{opacity:0.9;stroke-width:2.5;stroke:#58a6ff}}
 </style></head>
 <body>
 <div id="graph-panel"><svg></svg>
@@ -125,16 +122,13 @@ nd.append("text").text(d=>d.label).style("font-family",'"PingFang SC","Microsoft
 var W=document.getElementById("graph-panel").clientWidth,H=document.getElementById("graph-panel").clientHeight;
 s=d3.forceSimulation(gn).force("link",d3.forceLink(ge).id(d=>d.id).distance(d=>{{var ds={dfs(link_dists)};return ds[d.type]||160}}).strength(0.4)).force("charge",d3.forceManyBody().strength({charge}).distanceMax(600)).force("center",d3.forceCenter(W/2,H/2)).force("collision",d3.forceCollide().radius(d=>nr(d)+{collide})).alphaDecay(0.015).on("tick",()=>{{lk.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);nd.attr("transform",d=>"translate("+d.x+","+d.y+")")}})}}
 function focusNode(d,nd,lk){{
-g.selectAll(".node").classed("dim",false).classed("linked",false);
-g.selectAll(".edge").classed("dim",false).classed("linked",false);
+g.selectAll(".node").classed("linked",false);
+g.selectAll(".edge").classed("linked",false);
 // Find connected node IDs
 var connected=new Set([d.id]);
 ge.forEach(e=>{{var s=e.source.id||e.source;var t=e.target.id||e.target;if(s===d.id)connected.add(t);if(t===d.id)connected.add(s)}});
-// Dim nodes not connected, highlight connected ones
-nd.classed("dim",n=>!connected.has(n.id));
+// Highlight connected nodes and edges (leave rest of graph fully visible)
 nd.classed("linked",n=>connected.has(n.id)&&n.id!==d.id);
-// Dim edges not connected to this node, highlight ones that are
-lk.classed("dim",e=>{{var s=e.source.id||e.source;var t=e.target.id||e.target;return s!==d.id&&t!==d.id}});
 lk.classed("linked",e=>{{var s=e.source.id||e.source;var t=e.target.id||e.target;return s===d.id||t===d.id}});
 }}
 function sd(d){{
@@ -157,14 +151,14 @@ inp.forEach(e=>{{var o=gn.find(n=>n.id===e.source.id);h+='<div class="edge-mini"
 h+='</div>';
 }}
 el.innerHTML=h;}}
-svg.on("click",()=>{{g.selectAll(".node").classed("dim",false).classed("linked",false);g.selectAll(".edge").classed("dim",false).classed("linked",false)}});
+svg.on("click",()=>{{g.selectAll(".node").classed("linked",false);g.selectAll(".edge").classed("linked",false)}});
 window.addEventListener("resize",()=>{{if(s){{var W=document.getElementById("graph-panel").clientWidth,H=document.getElementById("graph-panel").clientHeight;s.force("center",d3.forceCenter(W/2,H/2));s.alpha(0.3).restart()}}}});
 function zI(){{svg.transition().duration(300).call(zoom.scaleBy,1.3)}}
 function zO(){{svg.transition().duration(300).call(zoom.scaleBy,0.7)}}
 function zR(){{svg.transition().duration(400).call(zoom.transform,d3.zoomIdentity)}}
 var nfm = {note_file_js};
 function searchNodes(q){{
-q=q.toLowerCase();if(!q){{document.getElementById("detail-content").innerHTML='<div class="empty">&#x1F446; hover node to view details</div>';g.selectAll(".node").classed("dim",false).classed("linked",false);g.selectAll(".edge").classed("dim",false).classed("linked",false);return}}
+q=q.toLowerCase();if(!q){{document.getElementById("detail-content").innerHTML='<div class="empty">&#x1F446; hover node to view details</div>';g.selectAll(".node").classed("linked",false);g.selectAll(".edge").classed("linked",false);return}}
 var matches=gn.filter(n=>n.label.toLowerCase().includes(q)||(n.summary||'').toLowerCase().includes(q));
 var h='<div class="detail-block"><h3>搜索结果 ('+matches.length+')</h3>';
 matches.forEach(n=>{{
