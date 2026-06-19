@@ -36,3 +36,6 @@ metacog-analyzer.exe
 
 # Reasonix
 .reasonix/
+
+# DeepSeek state
+metacog-system/.deepseek/

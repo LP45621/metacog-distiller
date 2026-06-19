@@ -1,6 +1,6 @@
 Metacog Analysis Report
 ==================================================
-Generated: 2026-06-20 02:51
+Generated: 2026-06-20 03:12
 Project: metacog-distiller
 
 
@@ -20,8 +20,8 @@ Project: metacog-distiller
 
 学习中图谱
 ------------------------------
-节点: 84  连线: 69
-类型分布: {'tool': 12, 'concept': 42, 'project': 2, 'skill': 8, 'question': 20}
-置信度: {'certain': 71, 'likely': 13}
-深度分布: {0: 5, 1: 43, 2: 36}
-学习状态: {'learning': 16, 'learned': 13, 'todo': 5, 'asked': 50}
+节点: 90  连线: 73
+类型分布: {'tool': 12, 'concept': 43, 'project': 2, 'skill': 8, 'question': 25}
+置信度: {'certain': 72, 'likely': 18}
+深度分布: {0: 5, 1: 48, 2: 37}
+学习状态: {'learning': 17, 'learned': 13, 'todo': 5, 'asked': 55}
