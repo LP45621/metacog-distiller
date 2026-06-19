@@ -13,9 +13,14 @@ svg{width:100vw;height:100vh}
 .node text{fill:#ccc;font-size:11px;text-anchor:middle}
 .link{stroke:#555;stroke-opacity:0.4;fill:none}
 #info{position:fixed;top:10px;left:10px;color:#8af;font-size:13px}
+.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:6px 16px;font-size:12px;display:flex;gap:16px;align-items:center;flex-shrink:0}
+.nav-bar a{color:#8b949e;text-decoration:none}
+.nav-bar a:hover{color:#f0f6fc}
+.nav-bar .sep{color:#30363d}
 </style>
 </head>
 <body>
+<div class="nav-bar"><a href="index.html">🏠 返回首页</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐 图谱</a><span class="sep">|</span><a href="note-editor.html">📝 笔记</a></div>
 <div id="info"></div>
 <svg id="graph"></svg>
 <script>

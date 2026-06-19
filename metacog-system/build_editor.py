@@ -86,8 +86,13 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHe
 .ns-item{{padding:6px 12px;font-size:12px;cursor:pointer;border-bottom:1px solid #21262d;color:#c9d1d9}}
 .ns-item:hover{{background:#1c2128}}
 .ns-item .ns-type{{font-size:9px;color:#484f58;margin-left:4px}}
+.nav-bar{{background:#161b22;border-bottom:1px solid #30363d;padding:6px 16px;font-size:12px;display:flex;gap:16px;align-items:center;flex-shrink:0}}
+.nav-bar a{{color:#8b949e;text-decoration:none}}
+.nav-bar a:hover{{color:#f0f6fc}}
+.nav-bar .sep{{color:#30363d}}
 </style></head>
 <body>
+<div class="nav-bar"><a href="index.html">🏠 返回首页</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐 图谱</a><span class="sep">|</span><a href="metacognition-mapper.html">🧠 元认知</a></div>
 <div id="editor-panel">
   <div id="editor-header">
     <h1>📝 原子笔记</h1>

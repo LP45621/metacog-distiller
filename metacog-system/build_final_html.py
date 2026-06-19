@@ -88,6 +88,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHe
 #graph-tools button:hover{{background:#30363d}}
 </style></head>
 <body>
+<div class="nav-bar"><a href="index.html">🏠 返回首页</a><span class="sep">|</span><a href="knowledge-explorer.html">🌐 图谱</a><span class="sep">|</span><a href="note-editor.html">📝 笔记</a></div>
 <div id="graph-panel"><svg></svg>
 <div id="legend">{legend_html}</div>
 <div id="graph-tools"><button onclick="zI()">+</button><button onclick="zO()">-</button><button onclick="zR()">&#x21BA;</button></div></div>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧠 Metacog Distiller — 个人知识图谱系统</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;background:#0d1117;color:#c9d1d9;min-height:100vh;display:flex;flex-direction:column}
+.header{text-align:center;padding:48px 20px 32px;background:linear-gradient(180deg,#161b22 0%,#0d1117 100%)}
+.header h1{font-size:28px;color:#f0f6fc;margin-bottom:8px}
+.header p{font-size:14px;color:#8b949e;max-width:500px;margin:0 auto;line-height:1.6}
+.header .badge{display:inline-block;background:#1f6f3b;color:#e6edf3;font-size:11px;padding:3px 12px;border-radius:12px;margin-top:8px}
+.stats-row{display:flex;justify-content:center;gap:24px;padding:16px;font-size:12px;color:#484f58;border-bottom:1px solid #21262d}
+.stats-row span{color:#8b949e}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;padding:24px;max-width:1100px;margin:0 auto;flex:1;width:100%}
+.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.15s;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.card:hover{border-color:#58a6ff;transform:translateY(-2px)}
+.card .icon{font-size:28px;margin-bottom:8px}
+.card h2{font-size:15px;color:#f0f6fc;margin-bottom:4px}
+.card .desc{font-size:12px;color:#8b949e;line-height:1.5;flex:1}
+.card .meta{font-size:11px;color:#484f58;margin-top:10px;padding-top:10px;border-top:1px solid #21262d}
+.card .tag{display:inline-block;font-size:9px;padding:2px 8px;border-radius:8px;margin-right:4px;background:#21262d;color:#8b949e}
+.card .tag.primary{background:#1f6f3b;color:#e6edf3}
+.card .tag.blue{background:#1a5fb4;color:#c9d1d9}
+.card .tag.purple{background:#4a2d7a;color:#c9d1d9}
+.footer{text-align:center;padding:20px;font-size:11px;color:#484f58;border-top:1px solid #21262d}
+.footer a{color:#58a6ff;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🧠 Metacog Distiller</h1>
+  <p>原子化笔记 · 双向链接 · AI 认知伙伴 — 你的个人知识图谱系统</p>
+  <div class="badge">12 条宪法设计原则 · 117 个原子笔记 · 本地明文</div>
+</div>
+
+<div class="stats-row">
+  📝 <span id="note-count">加载中...</span> 笔记 &nbsp;·&nbsp; 🔗 <span id="edge-count">加载中...</span> 关联 &nbsp;·&nbsp; 📦 本地明文，无需数据库
+</div>
+
+<div class="cards" id="card-grid">
+  <a class="card" href="knowledge-explorer.html">
+    <div class="icon">🌐</div>
+    <h2>知识图谱浏览器</h2>
+    <div class="desc">交互式 D3.js 力导向图。搜索笔记、点击展开局部子图、查看双向链接详情。最适合探索你的知识网络。</div>
+    <div class="meta"><span class="tag primary">推荐</span> 双击打开 · 无需服务器</div>
+  </a>
+
+  <a class="card" href="note-editor.html">
+    <div class="icon">📝</div>
+    <h2>原子笔记编辑器</h2>
+    <div class="desc">写 Markdown 笔记，使用 [[Wiki链接]] 建立关联。编辑器右侧实时预览图谱高亮，保存到本地 notes/ 目录。</div>
+    <div class="meta"><span class="tag blue">新建笔记</span> 建议通过 HTTP 打开</div>
+  </a>
+
+  <a class="card" href="metacognition-mapper.html">
+    <div class="icon">🧠</div>
+    <h2>元认知图谱</h2>
+    <div class="desc">从 AI 对话中提取的认知模式图谱 — 思维风格、信念体系、偏差模式、决策策略。</div>
+    <div class="meta">28 节点 · 47 连线 <span class="tag purple">元认知</span></div>
+  </a>
+
+  <a class="card" href="knowledge-mapper.html">
+    <div class="icon">📚</div>
+    <h2>知识图谱</h2>
+    <div class="desc">技术概念与领域知识图谱 — 嵌入式开发、工具链、编程语言、项目经验。</div>
+    <div class="meta">39+ 节点 · 44+ 连线 <span class="tag">知识</span></div>
+  </a>
+
+  <a class="card" href="learning-mapper.html">
+    <div class="icon">📖</div>
+    <h2>学习图谱</h2>
+    <div class="desc">学习状态追踪 — 已问/学习中/待办/已学会，可视化你的学习进度和知识积累路径。</div>
+    <div class="meta">66+ 节点 · 60+ 连线 <span class="tag">学习</span></div>
+  </a>
+
+  <a class="card" href="ai-capability-mapper.html">
+    <div class="icon">🤖</div>
+    <h2>AI 能力图谱</h2>
+    <div class="desc">AI 工具与能力映射 — 从对话中提取的 AI 相关节点和关系。</div>
+    <div class="meta">11 节点 · 16 连线 <span class="tag">AI</span></div>
+  </a>
+
+  <a class="card" onclick="alert('运行: cd metacog-system && python3 -X utf8 metacog_workflow.py')" style="cursor:pointer">
+    <div class="icon">💬</div>
+    <h2>元认知挖掘工作流</h2>
+    <div class="desc">交互式 AI 对话 + 实时图谱。⛏️ 挖掘模式 + 🤖 认知伙伴模式。需要运行 Python 服务器。</div>
+    <div class="meta"><span class="tag">python3 metacog_workflow.py</span> → localhost:19800</div>
+  </a>
+
+  <a class="card" onclick="alert('运行: cd metacog-system && python3 -X utf8 note_graph.py --serve')" style="cursor:pointer">
+    <div class="icon">🔍</div>
+    <h2>笔记搜索 + HTTP 服务</h2>
+    <div class="desc">启动本地服务器浏览笔记目录，支持全文搜索。让 note-editor.html 和 notes/ 可以正常加载。</div>
+    <div class="meta"><span class="tag">python3 note_graph.py --serve</span> → localhost:19801</div>
+  </a>
+
+  <a class="card" href="notes/">
+    <div class="icon">📁</div>
+    <h2>笔记目录</h2>
+    <div class="desc">浏览 notes/ 目录下的所有原子笔记文件。一笔记一概念，Markdown 格式，纯文本可迁移。</div>
+    <div class="meta">117 个 .md 文件 · 本地明文</div>
+  </a>
+</div>
+
+<script>
+// Load stats from note_graph.json
+fetch('metacog-system/note_graph.json')
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById('note-count').textContent = d.nodes.length;
+    document.getElementById('edge-count').textContent = d.edges.length;
+  })
+  .catch(() => {
+    document.getElementById('note-count').textContent = '117+';
+    document.getElementById('edge-count').textContent = '136+';
+  });
+</script>
+
+<div class="footer">
+  <a href="https://github.com/LP45621/metacog-distiller" target="_blank">GitHub</a> ·
+  <a href="README.md" target="_blank">README</a> ·
+  12 条宪法设计原则 ·
+  <span id="footer-time"></span>
+  <script>document.getElementById('footer-time').textContent = new Date().toLocaleDateString('zh-CN')</script>
+</div>
+</body>
+</html>
